@@ -619,7 +619,11 @@ function initTipJar() {
     }
 
     if (!cfg || !cfg.configured || !cfg.publishableKey) {
-      showStatus('info', 'Tip jar is almost ready — add your Stripe keys to go live.');
+      if (cfg && cfg.publishableKey && !cfg.configured) {
+        showStatus('info', 'Publishable key active. Stripe secret_key (sk_live_...) is required on Hostinger to enable checkout.');
+      } else {
+        showStatus('info', 'Tip jar is almost ready — add your Stripe keys to go live.');
+      }
       if (cardBtn) cardBtn.disabled = true;
       return;
     }

@@ -15,7 +15,7 @@ return [
     'secret_key'      => 'sk_test_REPLACE_WITH_YOUR_SECRET_KEY',
 
     // PUBLISHABLE key — safe to send to the browser.
-    'publishable_key' => 'pk_test_REPLACE_WITH_YOUR_PUBLISHABLE_KEY',
+    'publishable_key' => 'pk_live_51URbtuLMm2E51ycPEuvappBvtmBUGy7bVfkBgO6YsZhivK1WojSCLdDOfYCn6962Bml3oKk5xzxCdLqaofcGXq2400j8aBpKnh',
 
     'currency' => 'gbp',   // ISO currency code
     'country'  => 'GB',    // Merchant country (ISO 3166-1 alpha-2)

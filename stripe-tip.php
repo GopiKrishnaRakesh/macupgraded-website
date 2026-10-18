@@ -36,6 +36,9 @@ if (!empty($env_sec) && empty($CONFIG['secret_key'])) {
 if (!empty($env_pub) && empty($CONFIG['publishable_key'])) {
     $CONFIG['publishable_key'] = $env_pub;
 }
+if (empty($CONFIG['publishable_key'])) {
+    $CONFIG['publishable_key'] = 'pk_live_51URbtuLMm2E51ycPEuvappBvtmBUGy7bVfkBgO6YsZhivK1WojSCLdDOfYCn6962Bml3oKk5xzxCdLqaofcGXq2400j8aBpKnh';
+}
 $MIN_PENCE = 100;    // £1.00
 $MAX_PENCE = 50000;  // £500.00
 
