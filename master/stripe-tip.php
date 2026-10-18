@@ -24,6 +24,18 @@ header('X-Content-Type-Options: nosniff');
    Config
 ---------------------------------------------------------------------------- */
 $CONFIG = @include __DIR__ . '/stripe-config.php';
+if (!is_array($CONFIG)) {
+    $CONFIG = [];
+}
+// Support environment variables as fallback
+$env_sec = getenv('STRIPE_SECRET_KEY') ?: (isset($_ENV['STRIPE_SECRET_KEY']) ? $_ENV['STRIPE_SECRET_KEY'] : (isset($_SERVER['STRIPE_SECRET_KEY']) ? $_SERVER['STRIPE_SECRET_KEY'] : null));
+$env_pub = getenv('STRIPE_PUBLISHABLE_KEY') ?: (isset($_ENV['STRIPE_PUBLISHABLE_KEY']) ? $_ENV['STRIPE_PUBLISHABLE_KEY'] : (isset($_SERVER['STRIPE_PUBLISHABLE_KEY']) ? $_SERVER['STRIPE_PUBLISHABLE_KEY'] : null));
+if (!empty($env_sec) && empty($CONFIG['secret_key'])) {
+    $CONFIG['secret_key'] = $env_sec;
+}
+if (!empty($env_pub) && empty($CONFIG['publishable_key'])) {
+    $CONFIG['publishable_key'] = $env_pub;
+}
 $MIN_PENCE = 100;    // £1.00
 $MAX_PENCE = 50000;  // £500.00
 
