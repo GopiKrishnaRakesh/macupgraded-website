@@ -105,7 +105,7 @@ $label    = (is_array($CONFIG) && !empty($CONFIG['label']))    ? $CONFIG['label'
 if ($action === 'config') {
     out([
         'configured'     => cfg_ready($CONFIG),
-        'publishableKey' => cfg_ready($CONFIG) ? $CONFIG['publishable_key'] : null,
+        'publishableKey' => !empty($CONFIG['publishable_key']) ? $CONFIG['publishable_key'] : null,
         'currency'       => $currency,
         'country'        => $country,
         'label'          => $label,
