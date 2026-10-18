@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="site-version" content="20261018-080004-b6ee6dc">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pathway, the file manager your Mac was missing</title>
+  <meta name="description" content="Explorer's muscle memory meets macOS elegance. Enter opens, F2 renames, true Cut & Paste, and live folder sizes in List view. Native SwiftUI, Universal Binary.">
+  
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0b0d" media="(prefers-color-scheme: dark)">
+
+  <!-- Set theme before paint to avoid flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('mu-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Pathway">
+  <meta property="og:title" content="Pathway — The file manager your Mac was missing">
+  <meta property="og:description" content="Windows Explorer's muscle memory meets macOS elegance. Enter opens, F2 renames, true Cut & Paste, and live folder sizes in List view. Native SwiftUI, Universal Binary.">
+  <meta property="og:image" content="assets/social-banner.jpg?v=2">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pathway — The file manager your Mac was missing">
+  <meta name="twitter:description" content="Windows Explorer's muscle memory meets macOS elegance. Enter opens, F2 renames, true Cut & Paste, and live folder sizes.">
+  <meta name="twitter:image" content="assets/social-banner.jpg?v=2">
+
+  <!-- Favicons & App Manifest -->
+  <link rel="icon" type="image/png" href="assets/app-icon.png?v=ec67f737">
+  <link rel="apple-touch-icon" href="assets/app-icon.png?v=ec67f737">
+  <link rel="manifest" href="site.webmanifest?v=daa9309c">
+
+  <!-- Google Fonts: Space Grotesk (display) & JetBrains Mono (mono) — Native Mac Studio -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css?v=21fbf4cb">
+
+  <!-- Schema.org SoftwareApplication Structured Data for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Pathway",
+    "operatingSystem": "macOS 14.0+, macOS 15.0+",
+    "applicationCategory": "UtilitiesApplication",
+    "description": "The file manager your Mac was missing. Windows Explorer ergonomics with native macOS SwiftUI speed.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0.00",
+      "priceCurrency": "USD"
+    },
+    "downloadUrl": "https://github.com/GopiKrishnaRakesh/indiesuite-mac/releases/latest/download/Pathway-1.0.0.dmg"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Studio status strip -->
+  <div class="topstrip">
+    <div class="topstrip-inner">
+      <span><span class="dotok">●</span>&nbsp; PATHWAY — NATIVE macOS FILE MANAGER</span>
+      <span class="topstrip-right">UNIVERSAL BINARY<span class="sep">/</span>SwiftUI<span class="sep">/</span>ZERO TELEMETRY</span>
+    </div>
+  </div>
+
+  <!-- Flat toolbar (Top) -->
+  <div class="navbar-wrapper">
+    <header class="navbar">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../index.html" class="nav-back-pill" title="Return to Mac Upgraded Portfolio">← Mac Upgraded</a>
+        <a href="#top" class="nav-brand">
+          <img src="assets/app-icon.png?v=ec67f737" alt="Pathway" class="brand-icon">
+          <span class="brand-title">Pathway</span>
+        </a>
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#story" class="nav-link">Experience</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#shortcuts" class="nav-link">Shortcuts</a></li>
+          <li><a href="#setup" class="nav-link">Setup</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-right">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch between light and dark theme" title="Toggle theme">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+        <!-- TOP DOWNLOAD BUTTON (Required) -->
+        <a href="https://github.com/GopiKrishnaRakesh/indiesuite-mac/releases/latest/download/Pathway-1.0.0.dmg" class="nav-cta" id="topDownloadBtn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Get Pathway</span>
+        </a>
+      </div>
+    </header>
+  </div>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <!-- Interactive Playful Mascot / Icon (Perry-style) -->
+        <div class="hero-mascot-wrapper">
+          <button type="button" class="hero-mascot-btn" id="mascotBtn" aria-label="Poke Pathway icon">
+            <img src="assets/app-icon.png?v=ec67f737" alt="Pathway Icon" class="mascot-img">
+          </button>
+          <span class="mascot-hint" id="mascotHint">← click me</span>
+        </div>
+
+        <h1 class="hero-title">
+          Pathway, the <span class="title-highlight">file manager</span> your Mac was missing.
+        </h1>
+
+        <p class="hero-desc">
+          Windows Explorer’s muscle memory. macOS native elegance. Built for switchers and power users who want files to open on Enter, rename on F2, and folder sizes calculated live in list view.
+        </p>
+
+        <div class="hero-actions">
+          <!-- Hero Primary Download Button -->
+          <a href="https://github.com/GopiKrishnaRakesh/indiesuite-mac/releases/latest/download/Pathway-1.0.0.dmg" class="btn-pill btn-pill-primary" id="heroDownloadBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download for Mac (Free)</span>
+          </a>
+          <button type="button" class="btn-pill btn-pill-secondary copy-download-link-btn" title="Copy direct download link to clipboard">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+            <span>Copy Link</span>
+          </button>
+          <a href="#setup" class="btn-pill btn-pill-secondary">
+            <span>Install guide</span>
+          </a>
+        </div>
+
+        <div class="hero-subtext">
+          <span>Universal Binary (Apple Silicon & Intel)</span>
+          <span class="hero-dot"></span>
+          <span>100% Native SwiftUI</span>
+          <span class="hero-dot"></span>
+          <span>Zero Dependencies</span>
+          <span class="hero-dot"></span>
+          <span>No Sandbox Jail</span>
+        </div>
+
+        <!-- Hero Showcase Frame -->
+        <div class="showcase-container">
+          <img src="assets/hero-macbook.jpg?v=2" alt="Pathway on MacBook Pro" class="showcase-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Narrative Section: A Day with Pathway (Interactive Story Beats like Perry) -->
+    <section class="section section-mist" id="story">
+      <div class="container">
+        <p class="section-label">Muscle Memory Restored</p>
+        <h2 class="section-title">Here is your workflow. Unbroken.</h2>
+        <p class="section-subtitle">
+          Click any beat to see how Pathway responds naturally to standard Windows habits.
+        </p>
+
+        <div class="narrative-grid">
+          <!-- Left: Story Beats -->
+          <div class="beat-list">
+            <!-- Beat 1: Enter -->
+            <div class="beat-item active" data-beat="enter">
+              <span class="beat-keycap">↵ ENTER</span>
+              <h3 class="beat-heading">Opens the file. Never renames.</h3>
+              <p class="beat-text">
+                Press Enter on any file or folder to launch it immediately. No more accidentally typing over your filenames when you just wanted to open them.
+              </p>
+            </div>
+
+            <!-- Beat 2: F2 -->
+            <div class="beat-item" data-beat="f2">
+              <span class="beat-keycap">F2</span>
+              <h3 class="beat-heading">Instant inline renaming.</h3>
+              <p class="beat-text">
+                Tap F2 to instantly select and edit the filename without touching the mouse or waiting for a double-click delay.
+              </p>
+            </div>
+
+            <!-- Beat 3: Folder Sizes -->
+            <div class="beat-item" data-beat="size">
+              <span class="beat-keycap">1.42 GB</span>
+              <h3 class="beat-heading">Folder sizes calculated in real-time.</h3>
+              <p class="beat-text">
+                Finder leaves folder sizes completely blank in List view. Pathway uses an asynchronous background actor with timestamp caching to calculate and display real directory sizes off the main thread.
+              </p>
+            </div>
+
+            <!-- Beat 4: Cut & Paste -->
+            <div class="beat-item" data-beat="cut">
+              <span class="beat-keycap">CTRL + X / ⌘X</span>
+              <h3 class="beat-heading">True Cut & Paste with full Undo.</h3>
+              <p class="beat-text">
+                Moving files is as natural as Ctrl+X (or ⌘X) and Ctrl+V (or ⌘V). Atomic filesystem moves with complete multi-level Undo & Redo.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Simulated Window Stage -->
+          <div>
+            <div class="preview-stage">
+              <div class="stage-header">
+                <div class="traffic-lights">
+                  <span class="traffic-dot dot-red"></span>
+                  <span class="traffic-dot dot-yellow"></span>
+                  <span class="traffic-dot dot-green"></span>
+                </div>
+                <div class="stage-title" id="stageTitle">Pathway — Enter to Open</div>
+                <div style="font-size: 0.75rem; color: var(--ink-faint);">Details (⌘1)</div>
+              </div>
+
+              <div class="stage-body">
+                <table class="sim-table">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Size</th>
+                      <th>Kind</th>
+                      <th>Tag</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="sim-row selected" data-row="project_brief">
+                      <td>
+                        <div class="sim-file-name">
+                          <span>📄</span>
+                          <span>Project_Brief.docx</span>
+                        </div>
+                      </td>
+                      <td>1.2 MB</td>
+                      <td>Document</td>
+                      <td><span class="sim-tag tag-blue"></span></td>
+                    </tr>
+                    <tr class="sim-row" data-row="assets_folder">
+                      <td>
+                        <div class="sim-file-name">
+                          <span>📁</span>
+                          <span>Brand_Assets</span>
+                        </div>
+                      </td>
+                      <td><span class="sim-size-calc" id="calcFolderSize" title="Click to recalculate">2.84 GB</span></td>
+                      <td>Folder</td>
+                      <td><span class="sim-tag tag-green"></span></td>
+                    </tr>
+                    <tr class="sim-row" data-row="design_specs">
+                      <td>
+                        <div class="sim-file-name">
+                          <span>📐</span>
+                          <span>Design_Specs.pdf</span>
+                        </div>
+                      </td>
+                      <td>18.4 MB</td>
+                      <td>PDF</td>
+                      <td><span class="sim-tag tag-red"></span></td>
+                    </tr>
+                    <tr class="sim-row" data-row="archive_zip">
+                      <td>
+                        <div class="sim-file-name">
+                          <span>📦</span>
+                          <span>Archive_v1.zip</span>
+                        </div>
+                      </td>
+                      <td>340 MB</td>
+                      <td>ZIP Archive</td>
+                      <td>—</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-hair); display: flex; align-items: center; justify-content: space-between; font-size: 0.82rem; color: var(--ink-muted);">
+                  <span id="stageStatus">Selected: Project_Brief.docx (Tap Enter ↵ to launch)</span>
+                  <span style="font-family: var(--font-mono); color: var(--accent-blue);">4 items · 3.19 GB</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Feature Highlights with Generated Renders -->
+    <section class="section" id="features">
+      <div class="container">
+        <p class="section-label">Engineered for Power</p>
+        <h2 class="section-title">Built-in tools that make Finder obsolete.</h2>
+
+        <!-- Feature 1: Folder Sizes & Sorting -->
+        <div class="feature-showcase-row">
+          <div class="feature-showcase-text">
+            <h3 style="font-size: 2rem; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 16px;">
+              Accurate folder weights & Group By sorting.
+            </h3>
+            <p style="font-size: 1.1rem; color: var(--ink-secondary); line-height: 1.6; margin-bottom: 20px;">
+              Never guess which folder is taking up all your storage. Pathway computes sizes asynchronously in a Swift 6 actor without freezing your UI.
+            </p>
+            <ul class="feature-showcase-list">
+              <li>✓ <strong>Sort by true byte weight:</strong> Folders sort by actual size rather than empty defaults.</li>
+              <li>✓ <strong>Ascending & Descending controls:</strong> Explicit toggles in header, toolbar, and menu.</li>
+              <li>✓ <strong>Group By categories:</strong> Group items into sections by Type/Kind, Date Modified, Size brackets, or Color Tags.</li>
+            </ul>
+          </div>
+          <div class="feature-showcase-img-wrap">
+            <img src="assets/features-showcase.jpg?v=2" alt="Pathway folder sizes and features" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Feature 2: Right-Click Batch Conversions -->
+        <div class="feature-showcase-row reverse">
+          <div class="feature-showcase-text">
+            <h3 style="font-size: 2rem; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 16px;">
+              Batch image & document conversions right inside context menu.
+            </h3>
+            <p style="font-size: 1.1rem; color: var(--ink-secondary); line-height: 1.6; margin-bottom: 20px;">
+              Stop opening third-party websites or paid utilities just to convert photos or combine files. Pathway uses native macOS graphics frameworks:
+            </p>
+            <ul class="feature-showcase-list">
+              <li>✓ <strong>Images:</strong> Convert instantly to JPEG, PNG, HEIC, TIFF, GIF, or merge multiple into a multi-page PDF.</li>
+              <li>✓ <strong>Documents:</strong> Transcode files into PDF, Word (.docx), Rich Text (.rtf), Plain Text, or HTML.</li>
+              <li>✓ <strong>Archives:</strong> 1-Click ZIP and TAR compression, plus in-place extraction.</li>
+            </ul>
+          </div>
+          <div class="feature-showcase-img-wrap">
+            <img src="assets/context-actions.jpg?v=2" alt="Pathway right click context actions" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tactile Keycap Playground -->
+    <section class="section section-mist" id="shortcuts">
+      <div class="container">
+        <p class="section-label">Keyboard Reference</p>
+        <h2 class="section-title">Try your muscle memory.</h2>
+        <p class="section-subtitle">
+          Press any key on your physical keyboard, or click the tactile buttons below:
+        </p>
+
+        <div class="key-tester-wrapper">
+          <div class="keycaps-row">
+            <button type="button" class="keycap-btn" data-key="Enter">Enter ↵</button>
+            <button type="button" class="keycap-btn" data-key="F2">F2</button>
+            <button type="button" class="keycap-btn" data-key="Backspace">Backspace ⌫</button>
+            <button type="button" class="keycap-btn" data-key="Ctrl+X">Ctrl+X / ⌘X</button>
+            <button type="button" class="keycap-btn" data-key="Ctrl+V">Ctrl+V / ⌘V</button>
+            <button type="button" class="keycap-btn" data-key="Delete">Delete ⌦</button>
+            <button type="button" class="keycap-btn" data-key="Space">Space</button>
+          </div>
+
+          <div class="keycap-feedback" id="keyFeedback">
+            Click a key or press it on your keyboard to inspect the Pathway behavior
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three Clean Promises (Perry "Yours, and only yours" style) -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Yours, and only yours.</h2>
+
+        <div class="promises-grid">
+          <div class="promise-card">
+            <h3>No sandbox jail.</h3>
+            <p>
+              Standard App Store file tools are restricted from browsing external SSDs, developer symlinks, or network shares. Pathway runs with native filesystem privileges.
+            </p>
+          </div>
+
+          <div class="promise-card">
+            <h3>No subscriptions.</h3>
+            <p>
+              100% free, open, and ad-free. No accounts, no license keys, no telemetry, and no artificial feature paywalls.
+            </p>
+          </div>
+
+          <div class="promise-card">
+            <h3>No Electron bloat.</h3>
+            <p>
+              Compiled directly into native ARM64 & x86_64 machine code. Launches in 0.1 seconds and uses a fraction of the RAM of web wrappers.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clean Setup Section (Perry #setup style) -->
+    <section class="section setup-section" id="setup">
+      <div class="container">
+        <p class="section-label">Setup</p>
+        <h2 class="section-title">One drag. Then get to work.</h2>
+        <p class="section-subtitle">
+          Available as a Developer ID signed DMG or terminal command.
+        </p>
+
+        <div class="setup-stack">
+          <!-- Terminal Card 1: Install -->
+          <div class="terminal-card">
+            <div class="terminal-topbar">
+              <div class="terminal-step">
+                <span class="step-num">1</span>
+                <span>Install</span>
+              </div>
+              <div class="terminal-controls">
+                <div class="os-pill-group">
+                  <button type="button" class="os-tab active" data-mode="dmg">Direct DMG</button>
+                  <button type="button" class="os-tab" data-mode="git">Git Repo</button>
+                  <button type="button" class="os-tab" data-mode="curl">One-Line Curl</button>
+                </div>
+                <button type="button" class="copy-btn" data-copy="install">Copy</button>
+              </div>
+            </div>
+            <div class="terminal-content">
+              <p class="terminal-comment" id="installComment"># Double-click mounted DMG, drag Pathway into Applications</p>
+              <div class="terminal-cmd-row">
+                <div style="max-width: 80%;">
+                  <span class="t-prompt">$</span>
+                  <span class="t-cmd" id="installCmd">open Pathway-1.0.0.dmg</span>
+                </div>
+                <span class="t-desc" id="installDesc">mounts the notarized disk image</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terminal Card 2: Run -->
+          <div class="terminal-card">
+            <div class="terminal-topbar">
+              <div class="terminal-step">
+                <span class="step-num">2</span>
+                <span>Launch</span>
+              </div>
+              <button type="button" class="copy-btn" data-copy="run">Copy</button>
+            </div>
+            <div class="terminal-content">
+              <p class="terminal-comment"># Launch Pathway from Spotlight or Applications</p>
+              <div class="terminal-cmd-row">
+                <div>
+                  <span class="t-prompt">$</span>
+                  <span class="t-cmd">open -a Pathway</span>
+                </div>
+                <span class="t-desc">launches native SwiftUI file manager</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRAND FINAL DOWNLOAD SECTION (End of the page after scrolling) -->
+    <section class="close-section" id="download">
+      <div class="container">
+        <h2 class="close-title">
+          Stop fighting Finder. Start enjoying your Mac.
+        </h2>
+        <p class="close-desc">
+          Never accidentally rename a file on Enter again. Instant inline F2 renaming, true Cut & Paste, and real-time folder sizes in list view. 1.8 MB. Zero bloat. 100% free.
+        </p>
+
+        <div class="bottom-actions-group">
+          <!-- BOTTOM DOWNLOAD BUTTON (Required) -->
+          <a href="https://github.com/GopiKrishnaRakesh/indiesuite-mac/releases/latest/download/Pathway-1.0.0.dmg" class="btn-pill btn-pill-primary" style="height: 56px; padding: 0 32px; font-size: 1.15rem;" id="bottomDownloadBtn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Pathway for Mac (v1.0.0 DMG)</span>
+          </a>
+          <button type="button" class="btn-pill btn-pill-secondary copy-download-link-btn" style="height: 56px; padding: 0 24px; font-size: 1rem;" title="Copy direct download link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+            <span>Copy Link</span>
+          </button>
+        </div>
+
+        <p class="close-specs">
+          Runs on macOS 14.0+ Sonoma & macOS 15.0+ Sequoia · Universal Binary (M1–M4 & Intel) · 1.8 MB · 100% Free
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="assets/app-icon.png?v=ec67f737" alt="Pathway" style="width: 24px; height: 24px; border-radius: 5px;">
+        <span style="font-weight: 600; color: var(--ink-primary);">Pathway</span>
+        <span>— Part of the native software suite by <a href="../index.html" style="font-weight: 650; color: var(--ink-primary);">Mac Upgraded</a></span>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="../index.html" class="footer-link" style="font-weight: 650; color: var(--ink-primary);">← All Apps</a>
+        <a href="privacy.html" class="footer-link">Privacy Policy</a>
+        <a href="terms.html" class="footer-link">Terms</a>
+        <a href="mailto:contact@rakeshkode.co.uk" class="footer-link" style="color: var(--accent-blue); font-weight: 600;">contact@rakeshkode.co.uk</a>
+        <a href="https://github.com/GopiKrishnaRakesh/indiesuite-mac/releases/latest/download/Pathway-1.0.0.dmg" class="footer-link" style="color: var(--accent-blue); font-weight: 600;">Download DMG</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="app.js?v=5de68ca4" defer></script>
+
+<div class="rk-studio" style="border-top:1px solid rgba(127,127,127,.25);padding:18px 16px;text-align:center;font:14px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:inherit;opacity:.85">
+  Part of <a href="../index.html" style="color:inherit;font-weight:600">Mac Upgraded</a> by Rakesh Kode —
+  <a href="../paperleaf/index.html" style="color:inherit">Paperleaf</a> · <a href="../pathway/index.html" style="color:inherit">Pathway</a> · <a href="../paperbeam/index.html" style="color:inherit">Paperbeam</a> · <a href="../nfcpocket/index.html" style="color:inherit">NFC Pocket</a> · <a href="../brickr/index.html" style="color:inherit">Brickr</a> · <a href="../murmur/index.html" style="color:inherit">Murmur</a>
+</div>
+</body>
+</html>

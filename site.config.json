@@ -1,0 +1,90 @@
+{
+  "studio": "Rakesh Kode",
+  "domain": "macupgraded.com",
+  "contactEmail": "contact@rakeshkode.co.uk",
+  "apps": [
+    {
+      "id": "paperleaf",
+      "name": "Paperleaf",
+      "platform": "macOS · Windows",
+      "tagline": "Private invoicing, inventory and POS for Mac and Windows. Scan barcodes, track stock, print on A4, labels or receipt rolls.",
+      "source": "invoicing_app/paperleaf-website/dist",
+      "exclude": [
+        "*.md",
+        ".DS_Store",
+        "_headers",
+        "vercel.json"
+      ]
+    },
+    {
+      "id": "pathway",
+      "name": "Pathway",
+      "platform": "macOS",
+      "tagline": "The file manager your Mac was missing. Enter opens, F2 renames, true Cut & Paste.",
+      "source": "file manager/website",
+      "exclude": [
+        "*.md",
+        ".DS_Store",
+        "_headers",
+        "vercel.json"
+      ]
+    },
+    {
+      "id": "paperbeam",
+      "name": "Paperbeam",
+      "platform": "iPhone",
+      "tagline": "Private PDF scanner with on-device text recognition.",
+      "source": "DocScanner/AppStore",
+      "exclude": [
+        "*.md",
+        ".DS_Store",
+        "_headers",
+        "marketing",
+        "screenshots",
+        "vercel.json"
+      ]
+    },
+    {
+      "id": "nfcpocket",
+      "name": "NFC Pocket",
+      "platform": "iPhone",
+      "tagline": "Read, write and copy any NFC tag. 100% on-device.",
+      "source": "ClassicTagKit/website",
+      "oldDomains": [
+        "nfcpocket.app"
+      ],
+      "exclude": [
+        "*.md",
+        ".DS_Store",
+        "_headers",
+        "vercel.json"
+      ]
+    },
+    {
+      "id": "brickr",
+      "name": "Brickr",
+      "platform": "iPhone",
+      "tagline": "Block the apps that eat your time until you tap your NFC tag.",
+      "source": "websites/brickr",
+      "exclude": [
+        "*.md",
+        ".DS_Store",
+        "_headers",
+        "vercel.json"
+      ]
+    },
+    {
+      "id": "murmur",
+      "name": "Murmur",
+      "platform": "macOS",
+      "tagline": "Liquid-glass AI voice dictation & meeting notes, 100% on-device.",
+      "source": "Murmur/website",
+      "exclude": [
+        "*.md",
+        ".DS_Store",
+        "_headers",
+        "vercel.json"
+      ]
+    }
+  ]
+}

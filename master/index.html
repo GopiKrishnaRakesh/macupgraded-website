@@ -1,0 +1,780 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mac Upgraded — Software for Mac &amp; iPhone</title>
+  <meta name="description" content="Mac Upgraded by Rakesh Kode. Focused, private native software for Mac and iPhone: Paperleaf, Pathway, Murmur, Paperbeam, NFC Pocket, and Brickr.">
+  <link rel="canonical" href="https://{{DOMAIN}}/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mac Upgraded">
+  <meta property="og:title" content="Mac Upgraded — Software for Mac &amp; iPhone">
+  <meta property="og:description" content="Focused, private native tools for Mac and iPhone. Built with Apple frameworks, zero tracking, zero accounts.">
+  <meta property="og:image" content="assets/icons/paperleaf.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mac Upgraded — Software for Mac &amp; iPhone">
+  <meta name="twitter:description" content="Focused, private native tools for Mac and iPhone. Built with Apple frameworks, zero tracking, zero accounts.">
+  <meta name="twitter:image" content="assets/icons/paperleaf.png">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0b0d" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Set theme before paint to avoid flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('mu-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="image" href="assets/screens/paperleaf-hero.jpg">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Stripe.js powers the on-page Apple Pay / Google Pay sheet -->
+  <script src="https://js.stripe.com/v3/" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+  <a href="#apps" class="skip-link">Skip to content</a>
+
+  <!-- Studio status strip -->
+  <div class="topstrip">
+    <div class="container topstrip-inner">
+      <span><span class="dotok">●</span>&nbsp; MAC&nbsp;UPGRADED STUDIO — LONDON, UK</span>
+      <span class="topstrip-right">NATIVE macOS &amp; iOS<span class="sep">/</span>6 APPS<span class="sep">/</span>ZERO TRACKING</span>
+    </div>
+  </div>
+
+  <!-- Flat toolbar -->
+  <div class="navbar-wrapper">
+    <header class="navbar">
+      <a href="#top" class="nav-brand">
+        <span class="brand-monogram">MU</span>
+        <div class="brand-text">
+          <span class="brand-title">Mac Upgraded</span>
+          <span class="brand-subtitle">by {{STUDIO}}</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#apps" class="nav-link">Apps</a></li>
+          <li><a href="#principles" class="nav-link">Principles</a></li>
+          <li><a href="#support" class="nav-link">Support</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-right">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch between light and dark theme" title="Toggle theme">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+        <a href="#support" class="nav-cta"><span class="nav-cta-heart" aria-hidden="true">☕</span> Buy me a coffee</a>
+      </div>
+    </header>
+  </div>
+
+  <main id="top">
+    <!-- Graphical & Interactive Hero Section -->
+    <section class="hero">
+      <div class="hero-bg-grid" aria-hidden="true"></div>
+      <div class="hero-glow-halo" aria-hidden="true"></div>
+
+      <div class="container hero-container">
+        <!-- Hero Header Text -->
+        <div class="hero-copy">
+          <div class="eyebrow-pill">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>Mac Upgraded · Independent Software</span>
+          </div>
+
+          <h1 class="hero-title">
+            Your Mac &amp; iPhone,<br>
+            <span class="title-highlight">thoughtfully upgraded.</span>
+          </h1>
+
+          <p class="hero-desc">
+            Focused, private tools built for deep focus, local-first speed, and zero telemetry. Designed specifically for macOS and iOS with official Apple system frameworks.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#apps" class="btn btn-primary">
+              <span>Explore Native Apps</span>
+              <span class="btn-arrow" aria-hidden="true">↓</span>
+            </a>
+            <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+          </div>
+        </div>
+
+        <!-- Interactive Graphical App Stage -->
+        <div class="hero-stage-card" id="heroStageCard">
+          <div class="stage-window" id="stageWindow">
+            <div class="stage-titlebar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <span class="stage-window-title" id="stageWindowTitle">Paperleaf — Private Invoicing, Inventory &amp; POS</span>
+              <span class="stage-platform-pill" id="stagePlatformPill">macOS 14+ · Windows 10/11</span>
+            </div>
+
+            <!-- Dynamic Preview Image with Glint Effect -->
+            <div class="stage-screen-wrap">
+              <img id="stageImg" src="assets/screens/paperleaf-hero.jpg" alt="Active application interface" width="880" height="520" loading="eager" decoding="async">
+              <div class="stage-overlay">
+                <div class="stage-meta-bar">
+                  <div class="stage-meta-info">
+                    <strong id="stageAppName">Paperleaf</strong>
+                    <span id="stageAppTagline">Invoicing, inventory, barcode scanning, Goods-In receiving &amp; ESC/POS thermal receipts.</span>
+                  </div>
+                  <a href="paperleaf/index.html" id="stageCtaBtn" class="stage-launch-btn">
+                    <span>Open Paperleaf</span>
+                    <span class="btn-arrow" aria-hidden="true">↗</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive macOS Dock / Switcher -->
+          <div class="hero-dock" role="tablist" aria-label="Interactive App Switcher">
+            <button type="button" class="dock-item active" data-app="paperleaf" role="tab" aria-selected="true" title="Paperleaf">
+              <img src="assets/icons/paperleaf.png" alt="Paperleaf" width="44" height="44">
+              <span class="dock-tooltip">Paperleaf</span>
+              <span class="dock-indicator" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="dock-item" data-app="pathway" role="tab" aria-selected="false" title="Pathway">
+              <img src="assets/icons/pathway.png" alt="Pathway" width="44" height="44">
+              <span class="dock-tooltip">Pathway</span>
+              <span class="dock-indicator" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="dock-item" data-app="murmur" role="tab" aria-selected="false" title="Murmur">
+              <img src="assets/icons/murmur.png" alt="Murmur" width="44" height="44">
+              <span class="dock-tooltip">Murmur</span>
+              <span class="dock-indicator" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="dock-item" data-app="paperbeam" role="tab" aria-selected="false" title="Paperbeam">
+              <img src="assets/icons/paperbeam.png" alt="Paperbeam" width="44" height="44">
+              <span class="dock-tooltip">Paperbeam</span>
+              <span class="dock-indicator" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="dock-item" data-app="nfcpocket" role="tab" aria-selected="false" title="NFC Pocket">
+              <img src="assets/icons/nfcpocket.png" alt="NFC Pocket" width="44" height="44">
+              <span class="dock-tooltip">NFC Pocket</span>
+              <span class="dock-indicator" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="dock-item" data-app="brickr" role="tab" aria-selected="false" title="Brickr">
+              <img src="assets/icons/brickr.png" alt="Brickr" width="44" height="44">
+              <span class="dock-tooltip">Brickr</span>
+              <span class="dock-indicator" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <div class="dock-hint">
+            <span>Hover or click any app to preview its interface &bull; Auto-cycles</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Apps Showcase / Selected Work -->
+    <section id="apps" class="apps-section">
+      <div class="container">
+        <div class="section-head-split">
+          <div class="section-head">
+            <span class="section-eyebrow" data-no="01">The Lineup</span>
+            <h2 class="section-title">Applications</h2>
+            <p class="section-lead">
+              Click any application to visit its dedicated page, view live documentation, or download the installer.
+            </p>
+          </div>
+
+          <!-- Interactive Filter Tabs -->
+          <div class="filter-tabs" role="group" aria-label="Filter apps">
+            <button type="button" class="filter-pill active" data-filter="all">All Apps (6)</button>
+            <button type="button" class="filter-pill" data-filter="macos">macOS (3)</button>
+            <button type="button" class="filter-pill" data-filter="ios">iOS (3)</button>
+          </div>
+        </div>
+
+        <div class="projects-list">
+          <!-- 1. Paperleaf -->
+          <article class="project-card" id="paperleaf" data-platform="macos">
+            <div class="project-content">
+              <div class="project-header">
+                <img src="assets/icons/paperleaf.png" alt="Paperleaf" class="project-icon" width="56" height="56" loading="lazy">
+                <div class="project-title-group">
+                  <div class="project-title-row">
+                    <h3 class="project-name">Paperleaf</h3>
+                    <span class="platform-badge platform-macos">macOS 14+</span>
+                    <span class="platform-badge platform-windows">Windows 10/11</span>
+                  </div>
+                  <span class="project-category">Private Invoicing, Inventory &amp; POS</span>
+                </div>
+              </div>
+
+              <p class="project-tagline">
+                Private invoicing, inventory, Goods-In intake and point of sale for Mac and Windows. Scan barcodes, track stock, receive supplier deliveries, and print on A4 sheets, labels, or 58mm/80mm ESC/POS receipt rolls.
+              </p>
+
+              <p class="project-desc">
+                Built for retail shops, trade counters, and freelancers who need rapid invoicing and stock control without cloud subscriptions. Features include instant Goods-In delivery intake, smart credit note returns with inventory restock controls, real-time live previews, multi-tier tax rates, and thermal hardware support — with compressed end-to-end-encrypted sync across Mac and Windows that you control.
+              </p>
+
+              <ul class="project-features">
+                <li>Inventory &amp; POS: barcode scanning, stock tracking, thermal receipts</li>
+                <li>Goods-In intake: scan delivery barcodes or import supplier delivery notes</li>
+                <li>Smart credit notes: automatic restock toggle for damaged or returned goods</li>
+                <li>Spreadsheet CSV import/export &amp; high-volume performance (4,000+ items)</li>
+                <li>100% offline storage &amp; compressed end-to-end encrypted backup (Drive/iCloud)</li>
+              </ul>
+
+              <div class="project-action">
+                <a href="paperleaf/index.html" class="redirect-btn">
+                  <span>Visit Paperleaf Page</span>
+                  <span class="btn-arrow" aria-hidden="true">↗</span>
+                </a>
+                <span class="action-note">New Release: macOS .dmg &amp; Windows installer available</span>
+              </div>
+            </div>
+
+            <a href="paperleaf/index.html" class="project-visual-link" aria-label="Visit Paperleaf Page">
+              <div class="device-mac">
+                <div class="mac-titlebar">
+                  <span class="mac-dot dot-red"></span>
+                  <span class="mac-dot dot-yellow"></span>
+                  <span class="mac-dot dot-green"></span>
+                  <span class="mac-title">Paperleaf — Invoice Studio</span>
+                </div>
+                <img src="assets/screens/paperleaf-hero.jpg" alt="Paperleaf invoice editor view" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+            </a>
+          </article>
+
+          <!-- 2. Pathway -->
+          <article class="project-card" id="pathway" data-platform="macos">
+            <div class="project-content">
+              <div class="project-header">
+                <img src="assets/icons/pathway.png" alt="Pathway" class="project-icon" width="56" height="56" loading="lazy">
+                <div class="project-title-group">
+                  <div class="project-title-row">
+                    <h3 class="project-name">Pathway</h3>
+                    <span class="platform-badge platform-macos">macOS 14+</span>
+                  </div>
+                  <span class="project-category">Dual-Pane File Manager</span>
+                </div>
+              </div>
+
+              <p class="project-tagline">
+                The file manager your Mac was missing. Enter opens, F2 renames, true Cut &amp; Paste.
+              </p>
+
+              <p class="project-desc">
+                Restores the intuitive keyboard muscle memory power users rely on. Features side-by-side dual pane navigation, batch renaming with live preview, checksum verification, and native Quick Look integration without background resource bloat.
+              </p>
+
+              <ul class="project-features">
+                <li>Enter to open files and folders, F2 to rename instantly</li>
+                <li>True Cmd+X / Cmd+V cut and paste file relocations</li>
+                <li>Side-by-side dual-pane split browsing with Tab switching</li>
+                <li>Batch renamer, checksum analysis &amp; zero telemetry</li>
+              </ul>
+
+              <div class="project-action">
+                <a href="pathway/index.html" class="redirect-btn">
+                  <span>Visit Pathway Page</span>
+                  <span class="btn-arrow" aria-hidden="true">↗</span>
+                </a>
+                <span class="action-note">Direct macOS .dmg installer available on page</span>
+              </div>
+            </div>
+
+            <a href="pathway/index.html" class="project-visual-link" aria-label="Visit Pathway Page">
+              <div class="device-mac">
+                <div class="mac-titlebar">
+                  <span class="mac-dot dot-red"></span>
+                  <span class="mac-dot dot-yellow"></span>
+                  <span class="mac-dot dot-green"></span>
+                  <span class="mac-title">Pathway — Dual-Pane Workspace</span>
+                </div>
+                <img src="assets/screens/pathway-hero.jpg" alt="Pathway running on macOS" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+            </a>
+          </article>
+
+          <!-- 3. Murmur -->
+          <article class="project-card" id="murmur" data-platform="macos">
+            <div class="project-content">
+              <div class="project-header">
+                <img src="assets/icons/murmur.png" alt="Murmur" class="project-icon" width="56" height="56" loading="lazy">
+                <div class="project-title-group">
+                  <div class="project-title-row">
+                    <h3 class="project-name">Murmur</h3>
+                    <span class="platform-badge platform-mac">macOS 14+</span>
+                  </div>
+                  <span class="project-category">AI Voice Dictation &amp; Meeting Notes</span>
+                </div>
+              </div>
+
+              <p class="project-tagline">
+                Think out loud at 150+ WPM. Auto-strips filler words, hesitations, and stutters in real time.
+              </p>
+
+              <p class="project-desc">
+                A liquid-glass voice agent powered by OpenAI Whisper running 100% on-device on the Apple Neural Engine. Press ⌃⌥D to dictate directly into any Mac app, or record meetings with mic and system audio into searchable summaries.
+              </p>
+
+              <ul class="project-features">
+                <li>Universal hotkey (⌃⌥D) types directly into Slack, Notion, VS Code</li>
+                <li>Apple Neural Engine WhisperKit model — 100% private &amp; offline</li>
+                <li>Real-time filler word stripping (um, uh, er) and stutter collapse</li>
+                <li>Two-way call &amp; system audio transcription with AI summaries</li>
+              </ul>
+
+              <div class="project-action">
+                <a href="murmur/index.html" class="redirect-btn">
+                  <span>Visit Murmur Page</span>
+                  <span class="btn-arrow" aria-hidden="true">↗</span>
+                </a>
+                <span class="action-note">Direct macOS .dmg download available on page</span>
+              </div>
+            </div>
+
+            <a href="murmur/index.html" class="project-visual-link" aria-label="Visit Murmur Page">
+              <div class="device-mac">
+                <div class="mac-titlebar">
+                  <span class="mac-dot dot-red"></span>
+                  <span class="mac-dot dot-yellow"></span>
+                  <span class="mac-dot dot-green"></span>
+                  <span class="mac-title">Murmur — Liquid-Glass Voice Agent</span>
+                </div>
+                <img src="assets/screens/murmur-hero.jpg" alt="Murmur running on macOS" width="800" height="500" loading="lazy" decoding="async">
+              </div>
+            </a>
+          </article>
+
+          <!-- 4. Paperbeam -->
+          <article class="project-card" id="paperbeam" data-platform="ios">
+            <div class="project-content">
+              <div class="project-header">
+                <img src="assets/icons/paperbeam.png" alt="Paperbeam" class="project-icon" width="56" height="56" loading="lazy">
+                <div class="project-title-group">
+                  <div class="project-title-row">
+                    <h3 class="project-name">Paperbeam</h3>
+                    <span class="platform-badge platform-ios">iPhone iOS 16+</span>
+                  </div>
+                  <span class="project-category">Document Scanner &amp; Neural OCR</span>
+                </div>
+              </div>
+
+              <p class="project-tagline">
+                Private PDF scanner with on-device text recognition. Scans never leave your iPhone.
+              </p>
+
+              <p class="project-desc">
+                Turns physical documents, receipts, contracts, and notes into clean, searchable PDFs. Uses Apple's Neural Engine Vision framework entirely on-device, secures sensitive documents with Face ID, and exports encrypted PDFs.
+              </p>
+
+              <ul class="project-features">
+                <li>Automatic camera edge detection, deskew, and flattening</li>
+                <li>Apple Neural Engine on-device OCR for searchable PDFs</li>
+                <li>Face ID and Touch ID biometric vault protection</li>
+                <li>Password encryption, clean document filters &amp; stamps</li>
+              </ul>
+
+              <div class="project-action">
+                <div class="project-action-row">
+                  <a href="paperbeam/index.html" class="redirect-btn">
+                    <span>Visit Paperbeam Page</span>
+                    <span class="btn-arrow" aria-hidden="true">↗</span>
+                  </a>
+                  <a href="https://apps.apple.com/app/paperbeam/id6816061057" target="_blank" rel="noopener" class="direct-appstore-link" title="Download Paperbeam on the iOS App Store">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.8-.8 2-1.4 2.8-1.4zM19 17.3c-.5 1.1-.7 1.6-1.3 2.6-.9 1.4-2.1 3.1-3.6 3.1-1.3 0-1.7-.9-3.5-.9s-2.2.8-3.5.9c-1.5.1-2.6-1.5-3.5-2.9C1 19 .3 15.4 1.8 13c.8-1.3 2.1-2.1 3.6-2.1 1.4 0 2.3.9 3.5.9 1.1 0 1.8-.9 3.5-.9 1.3 0 2.6.7 3.6 1.9-3.1 1.7-2.6 6.1.4 7.5z"/></svg>
+                    <span>App Store ↗</span>
+                  </a>
+                </div>
+                <span class="action-note">Available now on the iOS App Store</span>
+              </div>
+            </div>
+
+            <a href="paperbeam/index.html" class="project-visual-link" aria-label="Visit Paperbeam Page">
+              <div class="device-render">
+                <img src="assets/screens/paperbeam-render.png" alt="Paperbeam beautifully sorted paperwork real marketing render" width="552" height="1200" loading="lazy" decoding="async">
+              </div>
+            </a>
+          </article>
+
+          <!-- 5. NFC Pocket -->
+          <article class="project-card" id="nfcpocket" data-platform="ios">
+            <div class="project-content">
+              <div class="project-header">
+                <img src="assets/icons/nfcpocket.png" alt="NFC Pocket" class="project-icon" width="56" height="56" loading="lazy">
+                <div class="project-title-group">
+                  <div class="project-title-row">
+                    <h3 class="project-name">NFC Pocket</h3>
+                    <span class="platform-badge platform-ios">iPhone iOS 17+</span>
+                    <span class="status-badge-soon">Launching Soon in App Store</span>
+                  </div>
+                  <span class="project-category">NFC Tag Studio &amp; Cloner</span>
+                </div>
+              </div>
+
+              <p class="project-tagline">
+                Read, write and copy any NFC tag. 100% on-device with zero cloud middleman.
+              </p>
+
+              <p class="project-desc">
+                A comprehensive toolkit for NFC chips. Inspect chip UIDs, write multi-record NDEF payloads (Wi-Fi passwords, contact cards, URLs, geo-coordinates), clone tag memory dumps onto blank tags, and lock hardware write-protection.
+              </p>
+
+              <ul class="project-features">
+                <li>Read NDEF, ISO 14443, Mifare Classic/Ultralight &amp; NTAG</li>
+                <li>Write Wi-Fi keys, URLs, vCards, phone numbers &amp; raw text</li>
+                <li>Backup tag memory dumps and clone to blank tags</li>
+                <li>Hardware write-protection locking &amp; saved tag library</li>
+              </ul>
+
+              <div class="project-action">
+                <div class="project-action-row">
+                  <a href="nfcpocket/index.html" class="redirect-btn">
+                    <span>Visit NFC Pocket Page</span>
+                    <span class="btn-arrow" aria-hidden="true">↗</span>
+                  </a>
+                  <span class="action-status-badge">🚀 Launching soon in App Store</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="nfcpocket/index.html" class="project-visual-link" aria-label="Visit NFC Pocket Page">
+              <div class="device-phone">
+                <div class="phone-notch"></div>
+                <img src="assets/screens/nfcpocket-home.png" alt="NFC Pocket iPhone interface" width="340" height="700" loading="lazy" decoding="async">
+              </div>
+            </a>
+          </article>
+
+          <!-- 6. Brickr -->
+          <article class="project-card" id="brickr" data-platform="ios">
+            <div class="project-content">
+              <div class="project-header">
+                <img src="assets/icons/brickr.png" alt="Brickr" class="project-icon" width="56" height="56" loading="lazy">
+                <div class="project-title-group">
+                  <div class="project-title-row">
+                    <h3 class="project-name">Brickr</h3>
+                    <span class="platform-badge platform-ios">iPhone iOS 16+</span>
+                  </div>
+                  <span class="project-category">Screen Time &amp; Physical NFC Blocker</span>
+                </div>
+              </div>
+
+              <p class="project-tagline">
+                Block the apps that eat your time until you physically tap your NFC tag.
+              </p>
+
+              <p class="project-desc">
+                Combines Apple's Screen Time FamilyControls with physical friction. Set daily minute budgets for addictive apps. When your limit is reached, the app bricks full-screen. The only unlock is physically tapping your designated NFC tag or scanning your QR code.
+              </p>
+
+              <ul class="project-features">
+                <li>Full-screen un-swipeable app shields when daily limit is hit</li>
+                <li>Physical NFC tap required to unlock (forces physical movement)</li>
+                <li>Focus Score, activity rings, 7-day usage charts &amp; clean streaks</li>
+                <li>Clean midnight reset &amp; zero telemetry collection</li>
+              </ul>
+
+              <div class="project-action">
+                <div class="project-action-row">
+                  <a href="brickr/index.html" class="redirect-btn">
+                    <span>Visit Brickr Page</span>
+                    <span class="btn-arrow" aria-hidden="true">↗</span>
+                  </a>
+                  <a href="https://apps.apple.com/us/app/brickr-tap-to-focus/id6801716120" target="_blank" rel="noopener" class="direct-appstore-link" title="Download Brickr on the iOS App Store">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.8-.8 2-1.4 2.8-1.4zM19 17.3c-.5 1.1-.7 1.6-1.3 2.6-.9 1.4-2.1 3.1-3.6 3.1-1.3 0-1.7-.9-3.5-.9s-2.2.8-3.5.9c-1.5.1-2.6-1.5-3.5-2.9C1 19 .3 15.4 1.8 13c.8-1.3 2.1-2.1 3.6-2.1 1.4 0 2.3.9 3.5.9 1.1 0 1.8-.9 3.5-.9 1.3 0 2.6.7 3.6 1.9-3.1 1.7-2.6 6.1.4 7.5z"/></svg>
+                    <span>App Store ↗</span>
+                  </a>
+                </div>
+                <span class="action-note">Available now on the iOS App Store</span>
+              </div>
+            </div>
+
+            <a href="brickr/index.html" class="project-visual-link" aria-label="Visit Brickr Page">
+              <div class="device-phone">
+                <div class="phone-notch"></div>
+                <img src="assets/screens/brickr-home.png" alt="Brickr daily limits and focus rings" width="340" height="700" loading="lazy" decoding="async">
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engineering Principles / Manifesto -->
+    <section id="principles" class="principles-section">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-eyebrow" data-no="02">Philosophy</span>
+          <h2 class="section-title">How every app is built</h2>
+          <p class="section-lead">
+            Software shouldn't spy on you, trap you into subscriptions, or fail because a remote server went down.
+          </p>
+        </div>
+
+        <div class="principles-grid">
+          <div class="principle-box">
+            <div class="principle-num">01</div>
+            <h3>Local-first computing</h3>
+            <p>
+              Your invoices, files, scanned documents, and NFC keys stay strictly on your physical machine. Where sync exists, it goes through your own private iCloud—never remote servers.
+            </p>
+          </div>
+
+          <div class="principle-box">
+            <div class="principle-num">02</div>
+            <h3>Zero accounts &amp; tracking</h3>
+            <p>
+              No sign-up forms, no analytics beacons, and no ad SDKs. The software operates without needing to know your identity or monitor how you use it.
+            </p>
+          </div>
+
+          <div class="principle-box">
+            <div class="principle-num">03</div>
+            <h3>Native Swift craftsmanship</h3>
+            <p>
+              Built using Apple's official system frameworks and SwiftUI. Applications launch instantaneously, respect battery life, support system shortcuts, and function fully offline.
+            </p>
+          </div>
+
+          <div class="principle-box">
+            <div class="principle-num">04</div>
+            <h3>Dedicated product pages</h3>
+            <p>
+              Each application has its own dedicated page with full documentation, feature guides, and direct download packages (DMG files or App Store links).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Support / Buy Me a Coffee (Apple Pay & Google Pay via Stripe) -->
+    <section id="support" class="support-section">
+      <div class="container">
+        <div class="support-card">
+          <div class="support-intro">
+            <div class="support-emoji" aria-hidden="true">☕</div>
+            <span class="section-eyebrow" data-no="03">Support the studio</span>
+            <h2>Buy me a coffee</h2>
+            <p class="support-lead">
+              Every app here is built by one person, kept private, and offered without subscriptions or tracking. If something saved you time, a quick tip keeps the lights on and the updates coming.
+            </p>
+            <ul class="support-points">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Pay in seconds with Apple&nbsp;Pay or Google&nbsp;Pay
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                Secured end-to-end by Stripe — no card details touch this site
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                One-off, no account, no recurring charge
+              </li>
+            </ul>
+          </div>
+
+          <div class="tip-jar" id="tipJar">
+            <div class="tip-jar-label">Choose an amount</div>
+
+            <div class="tip-amounts" id="tipAmounts" role="group" aria-label="Tip amount">
+              <button type="button" class="tip-option" data-amount="3">
+                <span class="tip-emoji" aria-hidden="true">☕</span>
+                <span class="tip-price">£3</span>
+                <span class="tip-name">Espresso</span>
+              </button>
+              <button type="button" class="tip-option selected" data-amount="5" aria-pressed="true">
+                <span class="tip-emoji" aria-hidden="true">🥐</span>
+                <span class="tip-price">£5</span>
+                <span class="tip-name">Flat white</span>
+              </button>
+              <button type="button" class="tip-option" data-amount="10">
+                <span class="tip-emoji" aria-hidden="true">🍰</span>
+                <span class="tip-price">£10</span>
+                <span class="tip-name">Lunch</span>
+              </button>
+            </div>
+
+            <div class="tip-custom">
+              <span class="tip-custom-symbol" aria-hidden="true">£</span>
+              <input type="number" id="tipCustom" inputmode="decimal" min="1" max="500" step="1" placeholder="Custom amount" aria-label="Custom tip amount in GBP">
+            </div>
+
+            <div class="tip-pay-area">
+              <!-- Stripe Payment Request Button (Apple Pay / Google Pay) mounts here -->
+              <div id="tip-payment-request-button"></div>
+              <p class="tip-wallet-note" id="tipWalletNote" hidden>Apple&nbsp;Pay / Google&nbsp;Pay appears here on a supported device &amp; browser.</p>
+
+              <div class="tip-divider" id="tipDivider" hidden>or</div>
+
+              <button type="button" class="tip-card-btn" id="tipCardBtn">
+                <span id="tipCardBtnText">Tip £5 with card</span>
+              </button>
+
+              <div class="tip-status" id="tipStatus" role="status"></div>
+            </div>
+
+            <div class="tip-secure-note">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>Payments processed securely by Stripe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="container">
+        <div class="contact-box">
+          <span class="section-eyebrow" data-no="04">Direct Contact</span>
+          <h2>Let's talk software</h2>
+          <p class="contact-intro">
+            Questions, bug reports, feature suggestions, or business inquiries about any application? Write directly to our London studio.
+          </p>
+
+          <div class="contact-methods">
+            <div class="email-direct-card">
+              <div>
+                <span class="email-label">Studio Direct Inquiries</span>
+                <div>
+                  <a href="mailto:contact@rakeshkode.co.uk" class="contact-email-link" id="contactEmailLink">contact@rakeshkode.co.uk</a>
+                </div>
+              </div>
+              <button type="button" class="btn-copy-email" id="copyEmailBtn" aria-label="Copy email address to clipboard">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span id="copyBtnText">Copy Email</span>
+              </button>
+            </div>
+
+            <!-- Validated Contact Form with Spam Honeypot -->
+            <form class="contact-form" id="contactForm" action="contact.php" method="POST" novalidate>
+              <input type="text" name="_gotcha" class="form-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+              <div class="form-row">
+                <div class="form-group" id="groupName">
+                  <label for="contactName">Your Name <span class="req">*</span></label>
+                  <input type="text" id="contactName" name="name" required placeholder="Steve Wozniak" autocomplete="name">
+                  <span class="form-error" id="nameError">Please enter your name.</span>
+                </div>
+
+                <div class="form-group" id="groupEmail">
+                  <label for="contactEmail">Your Email <span class="req">*</span></label>
+                  <input type="email" id="contactEmail" name="email" required placeholder="steve@example.com" autocomplete="email">
+                  <span class="form-error" id="emailError">Please enter a valid email address.</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="contactApp">Application</label>
+                <select id="contactApp" name="app">
+                  <option value="General">General / All Applications</option>
+                  <option value="Paperleaf">Paperleaf (macOS Invoicing)</option>
+                  <option value="Pathway">Pathway (macOS Dual-Pane File Manager)</option>
+                  <option value="Murmur">Murmur (macOS On-Device AI Voice Agent)</option>
+                  <option value="Paperbeam">Paperbeam (iOS Document Scanner &amp; OCR)</option>
+                  <option value="NFC Pocket">NFC Pocket (iOS NFC Tag Studio)</option>
+                  <option value="Brickr">Brickr (iOS Screen Time &amp; NFC Blocker)</option>
+                </select>
+              </div>
+
+              <div class="form-group" id="groupMessage">
+                <label for="contactMessage">Message <span class="req">*</span></label>
+                <textarea id="contactMessage" name="message" rows="4" required minlength="10" placeholder="How can we help or what feature would you like to see?"></textarea>
+                <span class="form-error" id="messageError">Please enter a message (at least 10 characters).</span>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary" id="formSubmitBtn">
+                  <span id="formSubmitText">Send Message</span>
+                  <span class="btn-arrow" id="formSubmitArrow" aria-hidden="true">→</span>
+                </button>
+                <span class="form-privacy-note">🔒 Zero data resale. We only use your email to reply.</span>
+              </div>
+
+              <!-- Direct Delivery Success Message -->
+              <div class="form-success" id="formSuccessMessage" style="display: none;" role="status">
+                <span class="success-icon" aria-hidden="true">✓</span>
+                <div>
+                  <strong>Message Delivered Directly!</strong>
+                  <p id="formSuccessDetail">Thank you! Your inquiry has been sent straight to <code>contact@rakeshkode.co.uk</code>. We will get back to you shortly.</p>
+                </div>
+              </div>
+
+              <!-- Fallback / Error Alert Message -->
+              <div class="form-error-banner" id="formErrorMessage" style="display: none;" role="alert">
+                <span class="error-icon" aria-hidden="true">⚠️</span>
+                <div>
+                  <strong id="formErrorTitle">Notice</strong>
+                  <p id="formErrorDetail">Unable to submit to the mail server. You can send your inquiry directly via your email client or copy our address.</p>
+                  <div class="form-error-actions">
+                    <a href="mailto:contact@rakeshkode.co.uk" class="btn-fallback" id="fallbackMailtoBtn">Open Email App</a>
+                    <button type="button" class="btn-fallback btn-fallback-secondary" id="fallbackCopyBtn">Copy Message Details</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="footer-title">Mac Upgraded</span>
+        <span class="footer-copy">&copy; {{YEAR}} {{STUDIO}}. Focused software for Mac &amp; iPhone.</span>
+      </div>
+      <div class="footer-links">
+        <a href="paperleaf/index.html">Paperleaf</a>
+        <a href="pathway/index.html">Pathway</a>
+        <a href="murmur/index.html">Murmur</a>
+        <a href="paperbeam/index.html">Paperbeam</a>
+        <a href="nfcpocket/index.html">NFC Pocket</a>
+        <a href="brickr/index.html">Brickr</a>
+        <span class="footer-sep" aria-hidden="true">·</span>
+        <a href="#support">Buy me a coffee</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+        <a href="mailto:contact@rakeshkode.co.uk">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Zero-Cookie Privacy Notice Banner -->
+  <div class="cookie-banner" id="cookieBanner" role="region" aria-label="Privacy guarantee">
+    <div class="cookie-banner-inner">
+      <div class="cookie-banner-text">
+        <span class="cookie-icon" aria-hidden="true">🛡️</span>
+        <span><strong>Zero Cookies &amp; Zero Trackers.</strong> Mac Upgraded operates entirely on-device and never stores tracking cookies.</span>
+      </div>
+      <div class="cookie-banner-actions">
+        <a href="privacy.html" class="cookie-banner-link">Learn More</a>
+        <button type="button" class="cookie-banner-dismiss" id="dismissCookieBanner" aria-label="Acknowledge and dismiss notice">Got it</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

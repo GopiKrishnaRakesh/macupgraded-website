@@ -1,0 +1,7 @@
+# Private Stripe keys — never commit. Copy stripe-config.example.php -> stripe-config.php
+stripe-config.php
+
+# Server-side contact log (if enabled by contact.php)
+contact_submissions.php
+
+.DS_Store

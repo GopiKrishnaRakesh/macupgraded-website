@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="site-version" content="20261018-080004-b6ee6dc">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Murmur</title>
+  <link rel="icon" type="image/png" href="assets/app-icon.png?v=91cbb121">
+  <link rel="apple-touch-icon" href="assets/app-icon.png?v=91cbb121">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=3deb32b8">
+</head>
+<body>
+  <!-- Floating Minimal Navbar -->
+  <div class="navbar-wrapper">
+    <header class="navbar">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../index.html" class="nav-back-pill" title="Return to Mac Upgraded Portfolio">← Mac Upgraded</a>
+        <a href="index.html" class="nav-brand">
+          <img src="assets/app-icon.png?v=91cbb121" alt="Murmur" class="brand-icon">
+          <span class="brand-title">Murmur</span>
+        </a>
+      </div>
+      <a href="downloads/Murmur-1.0.1.dmg" class="nav-cta">Get Murmur</a>
+    </header>
+  </div>
+
+  <main class="legal">
+    <a href="index.html" class="nav-back-pill" style="margin-bottom: 24px;">← Back to Murmur</a>
+    <h1>Privacy Policy</h1>
+    <div class="updated">Last updated 30 September 2026 · Studio: Mac Upgraded</div>
+
+    <p>Murmur is designed from the ground up to operate 100% on your Mac. This policy explains our local-first, zero-telemetry architecture.</p>
+
+    <h2>1. What Murmur Does Not Do</h2>
+    <ul>
+      <li><strong>No Cloud Audio Uploads:</strong> It never transmits your voice recordings, audio streams, or meeting transcripts to any server.</li>
+      <li><strong>No Accounts:</strong> It does not require any sign-up, email registration, login, or internet connection to function.</li>
+      <li><strong>No Tracking SDKs:</strong> It contains zero analytics frameworks, advertising trackers, or telemetry probes.</li>
+    </ul>
+
+    <h2>2. On-Device Speech Recognition</h2>
+    <p>Speech transcription executes entirely on your device using OpenAI's Whisper model (via WhisperKit) running on the Apple Silicon Neural Engine, or optionally Apple's built-in Speech framework. Audio samples are analyzed in volatile RAM and are never written to disk except as the text files you choose to save into your private notes library.</p>
+
+    <h2>3. Where Your Data Lives</h2>
+    <p>Your notes, transcripts, and application preferences remain strictly inside your sandboxed user Application Support directory on your local Mac. Nothing is synced or uploaded to cloud storage unless you manually place a note file in an external location. Deleting the application removes all application data from your Mac.</p>
+
+    <h2>4. System Permissions</h2>
+    <ul>
+      <li><strong>Microphone:</strong> Required exclusively to capture speech when you trigger voice dictation or start recording a voice note.</li>
+      <li><strong>Accessibility:</strong> Required solely to inject synthesized keystrokes of transcribed text into your currently focused Mac application.</li>
+      <li><strong>Screen &amp; System Audio Recording:</strong> Required only when you explicitly start a meeting recording to capture system output audio from conferencing software like Zoom or Teams.</li>
+    </ul>
+
+    <h2>5. Contact &amp; Questions</h2>
+    <p>Questions or security inquiries can be sent directly to <a href="mailto:contact@rakeshkode.co.uk" style="color: var(--accent-blue); font-weight: 600;">contact@rakeshkode.co.uk</a>.</p>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="assets/app-icon.png?v=91cbb121" alt="Murmur" style="width: 24px; height: 24px; border-radius: 5px;">
+        <span style="font-weight: 600; color: var(--ink-primary);">Murmur</span>
+        <span>— Part of the native software suite by <a href="../index.html" style="font-weight: 650; color: var(--ink-primary);">Mac Upgraded</a></span>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="../index.html" class="footer-link" style="font-weight: 650; color: var(--ink-primary);">← All Apps</a>
+        <a href="index.html" class="footer-link">Home</a>
+        <a href="privacy.html" class="footer-link">Privacy Policy</a>
+        <a href="terms.html" class="footer-link">Terms</a>
+        <a href="mailto:contact@rakeshkode.co.uk" class="footer-link" style="color: var(--accent-blue); font-weight: 600;">contact@rakeshkode.co.uk</a>
+        <a href="downloads/Murmur-1.0.1.dmg" class="footer-link" style="color: var(--accent-blue); font-weight: 600;">Download DMG</a>
+      </nav>
+    </div>
+  </footer>
+
+<div class="rk-studio" style="border-top:1px solid rgba(127,127,127,.25);padding:18px 16px;text-align:center;font:14px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:inherit;opacity:.85">
+  Part of <a href="../index.html" style="color:inherit;font-weight:600">Mac Upgraded</a> by Rakesh Kode —
+  <a href="../paperleaf/index.html" style="color:inherit">Paperleaf</a> · <a href="../pathway/index.html" style="color:inherit">Pathway</a> · <a href="../paperbeam/index.html" style="color:inherit">Paperbeam</a> · <a href="../nfcpocket/index.html" style="color:inherit">NFC Pocket</a> · <a href="../brickr/index.html" style="color:inherit">Brickr</a> · <a href="../murmur/index.html" style="color:inherit">Murmur</a>
+</div>
+</body>
+</html>

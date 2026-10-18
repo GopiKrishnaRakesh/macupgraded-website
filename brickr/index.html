@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brickr — Block apps until you tap in</title>
+  <meta name="description" content="Set a daily limit for the apps that eat your time. Hit it and they brick — a full-screen block you can't swipe away. Tap your NFC tag to unlock. Private by design.">
+
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0b0d" media="(prefers-color-scheme: dark)">
+
+  <!-- Set theme before paint to avoid flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('mu-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Brickr">
+  <meta property="og:title" content="Brickr — Block apps until you tap in">
+  <meta property="og:description" content="Daily app limits you can't swipe away. Tap your NFC tag or scan your QR code to unbrick.">
+  <meta property="og:image" content="assets/screen-home.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Brickr — Block apps until you tap in">
+  <meta name="twitter:description" content="Daily app limits you can't swipe away. Tap your NFC tag or scan your QR code to unbrick.">
+  <meta name="twitter:image" content="assets/screen-home.png">
+
+  <link rel="icon" type="image/png" href="assets/app-icon.png">
+  <link rel="apple-touch-icon" href="assets/app-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Brickr",
+    "operatingSystem": "iOS 16.0+",
+    "applicationCategory": "ProductivityApplication",
+    "description": "Block distracting apps with daily limits and physical NFC tag friction.",
+    "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Studio status strip -->
+  <div class="topstrip">
+    <div class="topstrip-inner">
+      <span><span class="dotok">●</span>&nbsp; BRICKR — SCREEN TIME &amp; NFC BLOCKER</span>
+      <span class="topstrip-right">FAMILY CONTROLS<span class="sep">/</span>iOS<span class="sep">/</span>ON-DEVICE</span>
+    </div>
+  </div>
+
+  <!-- Flat Toolbar -->
+  <div class="navbar-wrapper">
+    <header class="navbar">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../" class="nav-back-pill" title="Return to Mac Upgraded Portfolio">← Mac Upgraded</a>
+        <a href="#top" class="nav-brand">
+          <img src="assets/app-icon.png" alt="Brickr" class="brand-icon">
+          <span class="brand-title">Brickr</span>
+        </a>
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#how" class="nav-link">How it works</a></li>
+          <li><a href="#features" class="nav-link">Focus Tools</a></li>
+          <li><a href="#insights" class="nav-link">Insights</a></li>
+          <li><a href="#privacy" class="nav-link">Privacy</a></li>
+          <li><a href="support.html" class="nav-link">Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-right">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch between light and dark theme" title="Toggle theme">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+        <a href="https://apps.apple.com/us/app/brickr-tap-to-focus/id6801716120" target="_blank" rel="noopener" class="nav-cta">Get Brickr</a>
+      </div>
+    </header>
+  </div>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow-pill">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>iPhone · Screen Time &amp; Physical NFC Blocker</span>
+          </div>
+
+          <h1 class="hero-title">
+            Block the apps that eat your time.<br>
+            <em class="title-highlight">Tap in to unlock.</em>
+          </h1>
+
+          <p class="hero-desc">
+            Give your worst-habit apps a daily time budget. Cross it and they brick—a full-screen block you can't just swipe away. The only way back in is a physical act: tapping the NFC tag you registered, or scanning your QR code.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://apps.apple.com/us/app/brickr-tap-to-focus/id6801716120" target="_blank" rel="noopener" class="btn btn-primary" id="getAppBtn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.8-.8 2-1.4 2.8-1.4zM19 17.3c-.5 1.1-.7 1.6-1.3 2.6-.9 1.4-2.1 3.1-3.6 3.1-1.3 0-1.7-.9-3.5-.9s-2.2.8-3.5.9c-1.5.1-2.6-1.5-3.5-2.9C1 19 .3 15.4 1.8 13c.8-1.3 2.1-2.1 3.6-2.1 1.4 0 2.3.9 3.5.9 1.1 0 1.8-.9 3.5-.9 1.3 0 2.6.7 3.6 1.9-3.1 1.7-2.6 6.1.4 7.5z"/></svg>
+              <span>Download on the App Store</span>
+            </a>
+            <a href="#how" class="btn btn-ghost">See how it works ↓</a>
+          </div>
+
+          <p class="hero-subline">iOS 16+ · Apple Family Controls · 100% on-device</p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="phone-duo">
+            <div class="phone-frame phone-back">
+              <div class="notch"></div>
+              <img src="assets/screen-lock.png" alt="Brickr active bricked screen requiring NFC tap" width="320" height="690" loading="eager">
+              <div class="phone-badge">Active Lock Screen</div>
+            </div>
+            <div class="phone-frame phone-front">
+              <div class="notch"></div>
+              <img src="assets/screen-home.png" alt="Brickr daily app limits and focus score" width="320" height="690" loading="eager">
+              <div class="phone-badge">Daily Limits &amp; Rings</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Strip -->
+    <div class="container">
+      <ul class="trust-strip">
+        <li>
+          <div class="trust-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </div>
+          <div>
+            <strong>Apple Screen Time</strong>
+            <span>Hard un-swipeable shields</span>
+          </div>
+        </li>
+        <li>
+          <div class="trust-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 18h8M6 12h12M6 6h10"></path></svg>
+          </div>
+          <div>
+            <strong>Physical Friction</strong>
+            <span>Tap NFC tag or scan QR</span>
+          </div>
+        </li>
+        <li>
+          <div class="trust-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div>
+            <strong>100% On-Device</strong>
+            <span>No tracking or cloud servers</span>
+          </div>
+        </li>
+        <li>
+          <div class="trust-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div>
+            <strong>Midnight Reset</strong>
+            <span>Fresh clean start tomorrow</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- How It Works Section -->
+    <section id="how" class="section">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="section-eyebrow">The Mechanics</span>
+          <h2 class="section-title">How Brickr breaks the loop</h2>
+          <p class="section-lead">
+            Willpower alone fails because our phones are designed to hijack it. Adding physical friction turns mindless reflex into an intentional decision.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-num">01</span>
+            <h3>Choose apps &amp; set limits</h3>
+            <p>Pick the apps you lose hours to (social media, video feeds, games) and give each a daily minute budget.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-num">02</span>
+            <h3>Use your phone normally</h3>
+            <p>Use your apps as usual. The instant you cross your minute budget, Brickr shields that app with a full-screen block.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-num">03</span>
+            <h3>Physical tap to unbrick</h3>
+            <p>Tap the NFC tag you registered (placed on your desk, in another room, or your car)—or scan your printed QR code to unlock.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-num">04</span>
+            <h3>Clean slate at midnight</h3>
+            <p>All daily allowances reset at midnight automatically so every morning starts with zero guilt and maximum focus.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Built for Focus Feature Grid -->
+    <section id="features" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-eyebrow">Purpose-Built</span>
+          <h2 class="section-title">Built for genuine focus, not guilt</h2>
+          <p class="section-lead">
+            Every feature in Brickr is designed to nudge you toward real life without feeling punitive.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-box">
+            <div class="feat-icon">🏷️</div>
+            <h3>NFC Tag or Printed QR</h3>
+            <p>Use any cheap NFC sticker (NTAG213/215), an existing transit card, or print a QR code card if your desk lacks NFC tags.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feat-icon">🛡️</div>
+            <h3>Apple Family Controls Shield</h3>
+            <p>Uses Apple's native Screen Time API. Unlike fake timer apps, you cannot simply bypass it with app-switcher gestures.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feat-icon">💬</div>
+            <h3>Block screen with a reason</h3>
+            <p>Customize your block screen with your own reminders: <em>"You set this to finish your thesis."</em> or <em>"Go outside."</em></p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feat-icon">⏳</div>
+            <h3>Emergency friction unlock</h3>
+            <p>Need urgent access to messages or maps? An intentional reflection cooldown allows urgent access without breaking habits.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feat-icon">📈</div>
+            <h3>Weekly Focus Score</h3>
+            <p>Apple Health–style activity rings, clean-day streak counter, and 7-day usage trends show your reclaim progress.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feat-icon">🔒</div>
+            <h3>100% Private by design</h3>
+            <p>Your app choices, screen time statistics, and tag data never leave your iPhone. Zero analytics, zero advertising SDKs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="section">
+      <div class="container insight-showcase">
+        <div class="insight-copy">
+          <span class="section-eyebrow">Progress Tracking</span>
+          <h2 class="section-title">Insights that actually mean something</h2>
+          <p class="section-lead">
+            No convoluted dashboards. Just clear metrics that celebrate your attention returning to the things that matter.
+          </p>
+          <ul class="insight-list">
+            <li><strong>Weekly Focus Score (0–100):</strong> Measures how well you respected your daily allowances across all apps.</li>
+            <li><strong>Clean Day Streaks:</strong> Track consecutive days where zero apps had to be bricked.</li>
+            <li><strong>Breakdown by App:</strong> Identify exactly which applications trigger mindless scrolling.</li>
+          </ul>
+        </div>
+        <div class="insight-visual">
+          <div class="phone-frame">
+            <div class="notch"></div>
+            <img src="assets/screen-home.png" alt="Brickr Focus Score and activity ring" width="320" height="690" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Privacy Section -->
+    <section id="privacy" class="section section-alt">
+      <div class="container">
+        <div class="privacy-card">
+          <div class="privacy-badge">Zero Data Collection</div>
+          <h2>Private by architecture, not just by policy</h2>
+          <p>
+            Brickr is built directly on top of Apple's FamilyControls and ManagedSettings frameworks. Your app selection, screen time usage, and NFC identifiers are sandboxed on your iPhone.
+          </p>
+          <div class="privacy-checks">
+            <span>✓ No user accounts or email signups</span>
+            <span>✓ No tracking SDKs or ad analytics</span>
+            <span>✓ Screen Time data never leaves your device</span>
+            <span>✓ Works completely offline without internet</span>
+          </div>
+          <div class="privacy-links">
+            <a href="privacy.html" class="link-btn">Read Privacy Policy →</a>
+            <a href="support.html" class="link-btn">Support &amp; FAQ →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download CTA Banner -->
+    <section id="get" class="section cta-section">
+      <div class="container text-center">
+        <img src="assets/app-icon.png" alt="" width="80" height="80" class="cta-icon">
+        <h2 class="cta-title">Put temptation just out of reach.<br>Live a little more fully.</h2>
+        <p class="cta-desc">
+          Available for iPhone running iOS 16.0 or later.
+        </p>
+        <div class="cta-buttons">
+          <a href="https://apps.apple.com/us/app/brickr-tap-to-focus/id6801716120" target="_blank" rel="noopener" class="btn btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.8-.8 2-1.4 2.8-1.4zM19 17.3c-.5 1.1-.7 1.6-1.3 2.6-.9 1.4-2.1 3.1-3.6 3.1-1.3 0-1.7-.9-3.5-.9s-2.2.8-3.5.9c-1.5.1-2.6-1.5-3.5-2.9C1 19 .3 15.4 1.8 13c.8-1.3 2.1-2.1 3.6-2.1 1.4 0 2.3.9 3.5.9 1.1 0 1.8-.9 3.5-.9 1.3 0 2.6.7 3.6 1.9-3.1 1.7-2.6 6.1.4 7.5z"/></svg>
+            <span>Download on the App Store</span>
+          </a>
+        </div>
+        <p class="cta-note">Independent software by <a href="https://{{DOMAIN}}/">{{STUDIO}}</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="footer-brand">Brickr</span>
+        <span>© {{YEAR}} Brickr · Part of <a href="../" style="font-weight: 650; color: var(--ink-primary);">Mac Upgraded</a></span>
+      </div>
+      <div class="footer-links">
+        <a href="../" style="font-weight: 650; color: var(--ink-primary);">← All Apps</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="support.html">Support</a>
+        <a href="mailto:contact@rakeshkode.co.uk" style="color: var(--accent-brick); font-weight: 600;">contact@rakeshkode.co.uk</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Light / Dark theme toggle (shared Mac Upgraded behaviour, key: mu-theme) -->
+  <script>
+    (function () {
+      var toggle = document.getElementById('themeToggle');
+      if (!toggle) return;
+      var root = document.documentElement;
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      function current() {
+        var forced = root.getAttribute('data-theme');
+        if (forced === 'light' || forced === 'dark') return forced;
+        return prefersDark && prefersDark.matches ? 'dark' : 'light';
+      }
+      toggle.addEventListener('click', function () {
+        var next = current() === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('mu-theme', next); } catch (e) {}
+      });
+    })();
+  </script>
+</body>
+</html>

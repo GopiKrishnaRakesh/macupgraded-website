@@ -1,0 +1,11 @@
+{
+  "name": "Murmur",
+  "short_name": "Murmur",
+  "description": "Voice dictation and meeting notes for Mac, 100% on-device.",
+  "icons": [
+    { "src": "assets/app-icon.png", "sizes": "1024x1024", "type": "image/png" }
+  ],
+  "theme_color": "#0F0F11",
+  "background_color": "#0F0F11",
+  "display": "standalone"
+}

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="site-version" content="20261018-080004-b6ee6dc">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Murmur, the AI voice agent your Mac was missing</title>
+  <meta name="description" content="Think out loud at 150+ WPM. Auto-strips filler words, hesitations, and stutters in real time. Universal hotkey ⌃⌥D dictates directly into any app — powered by OpenAI Whisper on the Apple Neural Engine.">
+
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0b0d" media="(prefers-color-scheme: dark)">
+
+  <!-- Set theme before paint to avoid flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('mu-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Murmur">
+  <meta property="og:title" content="Murmur — The AI voice agent your Mac was missing">
+  <meta property="og:description" content="Think out loud at 150+ WPM. Auto-strips filler words and stutters in real time. 100% on-device Whisper on Apple Silicon.">
+  <meta property="og:image" content="assets/screens/library.jpg?v=c3722b4a">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Murmur — The AI voice agent your Mac was missing">
+  <meta name="twitter:description" content="Think out loud at 150+ WPM. Auto-strips filler words and stutters in real time. 100% on-device Whisper on Apple Silicon.">
+  <meta name="twitter:image" content="assets/screens/library.jpg?v=c3722b4a">
+
+  <!-- Favicons & Manifest -->
+  <link rel="icon" type="image/png" href="assets/app-icon.png?v=91cbb121">
+  <link rel="apple-touch-icon" href="assets/app-icon.png?v=91cbb121">
+  <link rel="manifest" href="site.webmanifest?v=2ff2d0f0">
+
+  <!-- Google Fonts: Space Grotesk (display) & JetBrains Mono (mono) — Native Mac Studio -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css?v=3deb32b8">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Murmur",
+    "operatingSystem": "macOS 14.0+, macOS 15.0+",
+    "applicationCategory": "ProductivityApplication",
+    "description": "Voice dictation and meeting-notes app for Mac. Types speech into any app in real time and records meetings into searchable, AI-summarized notes. 100% on-device.",
+    "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD" },
+    "downloadUrl": "https://github.com/GopiKrishnaRakesh/Murmur/releases/download/v1.0.1/Murmur.dmg"
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Studio status strip -->
+  <div class="topstrip">
+    <div class="topstrip-inner">
+      <span><span class="dotok">●</span>&nbsp; MURMUR — ON-DEVICE VOICE AGENT</span>
+      <span class="topstrip-right">WHISPER · NEURAL ENGINE<span class="sep">/</span>macOS<span class="sep">/</span>ZERO TELEMETRY</span>
+    </div>
+  </div>
+
+  <!-- Flat toolbar (Top) -->
+  <div class="navbar-wrapper">
+    <header class="navbar">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../index.html" class="nav-back-pill" title="Return to Mac Upgraded Portfolio">← Mac Upgraded</a>
+        <a href="#top" class="nav-brand">
+          <img src="assets/app-icon.png?v=91cbb121" alt="Murmur" class="brand-icon">
+          <span class="brand-title">Murmur</span>
+        </a>
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#story" class="nav-link">Experience</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#shortcuts" class="nav-link">Shortcuts</a></li>
+          <li><a href="#setup" class="nav-link">Setup</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-right">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch between light and dark theme" title="Toggle theme">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+        <!-- TOP DOWNLOAD BUTTON -->
+        <a href="https://github.com/GopiKrishnaRakesh/Murmur/releases/download/v1.0.1/Murmur.dmg" class="nav-cta" id="topDownloadBtn">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Get Murmur</span>
+        </a>
+      </div>
+    </header>
+  </div>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <!-- Interactive Playful Mascot / Icon (Perry-style) -->
+        <div class="hero-mascot-wrapper">
+          <button type="button" class="hero-mascot-btn" id="mascotBtn" aria-label="Poke Murmur icon">
+            <img src="assets/app-icon.png?v=91cbb121" alt="Murmur Icon" class="mascot-img">
+          </button>
+          <span class="mascot-hint" id="mascotHint">← click me</span>
+        </div>
+
+        <h1 class="hero-title">
+          Murmur, the <span class="title-highlight">AI voice agent</span> your Mac was missing.
+        </h1>
+
+        <p class="hero-desc">
+          Think out loud at 150+ WPM. Auto-strips filler words, hesitations, and stutters in real time. Universal hotkey <kbd class="kbd-badge">⌃⌥D</kbd> (<kbd class="kbd-badge">Ctrl+Opt+D</kbd>) dictates directly into Slack, Notion, VS Code, and Apple Mail — powered by OpenAI Whisper on the Apple Silicon Neural Engine.
+        </p>
+
+        <div class="hero-actions">
+          <!-- Hero Primary Download Button -->
+          <a href="https://github.com/GopiKrishnaRakesh/Murmur/releases/download/v1.0.1/Murmur.dmg" class="btn-pill btn-pill-primary" id="heroDownloadBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download for Mac (v1.0.1 DMG)</span>
+          </a>
+          <button type="button" class="btn-pill btn-pill-secondary copy-download-link-btn" title="Copy direct download link to clipboard">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+            <span>Copy Link</span>
+          </button>
+          <a href="https://github.com/GopiKrishnaRakesh/Murmur" class="btn-pill btn-pill-secondary" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            <span>GitHub Source</span>
+          </a>
+        </div>
+
+        <div class="hero-subtext">
+          <span>Universal Binary (macOS 14+)</span>
+          <span class="hero-dot"></span>
+          <span>Apple Silicon Neural Engine</span>
+          <span class="hero-dot"></span>
+          <span>100% On-Device Whisper</span>
+          <span class="hero-dot"></span>
+          <span>Zero Telemetry</span>
+        </div>
+
+        <!-- Hero Showcase Frame (macOS Window) -->
+        <div class="showcase-container">
+          <div class="mac-window-topbar">
+            <div class="traffic-lights">
+              <span class="traffic-dot dot-red"></span>
+              <span class="traffic-dot dot-yellow"></span>
+              <span class="traffic-dot dot-green"></span>
+            </div>
+            <div class="mac-window-title">Murmur — Notes, Meetings &amp; Live AI Audio HUD</div>
+            <div class="mac-window-badge">Neural Engine 150+ WPM</div>
+          </div>
+          <img src="assets/screens/library.jpg?v=c3722b4a" alt="Murmur's notes library showing transcribed meetings with AI executive summaries" class="showcase-img">
+        </div>
+      </div>
+    </section>
+
+    <!-- Narrative Section: Experience (Perry-style interactive beats) -->
+    <section class="section section-mist" id="story">
+      <div class="container">
+        <p class="section-label">Voice into Action</p>
+        <h2 class="section-title">Here is your thought. Cleaned in real time.</h2>
+        <p class="section-subtitle">
+          Click any beat to see how Murmur processes and polishes your speech directly on the Apple Neural Engine.
+        </p>
+
+        <div class="narrative-grid">
+          <!-- Left: Story Beats -->
+          <div class="beat-list">
+            <!-- Beat 1: Hotkey -->
+            <div class="beat-item active" data-beat="hotkey">
+              <span class="beat-keycap">⌃⌥D · CTRL+OPT+D</span>
+              <h3 class="beat-heading">Universal system-wide dictation.</h3>
+              <p class="beat-text">
+                Press <kbd class="kbd-badge">⌃⌥D</kbd> anywhere. A floating liquid-glass HUD appears, listens, and types clean, punctuated sentences straight into Slack, Notion, VS Code, or Apple Mail.
+              </p>
+            </div>
+
+            <!-- Beat 2: Filler Removal -->
+            <div class="beat-item" data-beat="filler">
+              <span class="beat-keycap">SMART CLEAN</span>
+              <h3 class="beat-heading">Automatic filler &amp; stutter stripper.</h3>
+              <p class="beat-text">
+                Hesitation sounds (um, uh, er), repeated words, and discourse padding (you know, basically) are automatically detected and stripped live before text touches your document.
+              </p>
+            </div>
+
+            <!-- Beat 3: Two-Way Audio -->
+            <div class="beat-item" data-beat="meetings">
+              <span class="beat-keycap">2-WAY CALLS</span>
+              <h3 class="beat-heading">Microphone and system audio combined.</h3>
+              <p class="beat-text">
+                Record your voice and your Mac's internal audio output together. Zoom, Microsoft Teams, and Google Meet conversations are synchronized into one searchable transcript.
+              </p>
+            </div>
+
+            <!-- Beat 4: Local Notes -->
+            <div class="beat-item" data-beat="notes">
+              <span class="beat-keycap">LOCAL VAULT</span>
+              <h3 class="beat-heading">Executive summaries &amp; action items.</h3>
+              <p class="beat-text">
+                Transcripts are automatically indexed in a local Markdown library with one-click copy, tag management, and search. Zero data ever leaves your device.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right: Interactive Live Audio HUD Stage -->
+          <div class="preview-stage">
+            <div class="stage-header">
+              <div class="traffic-lights">
+                <span class="traffic-dot dot-red"></span>
+                <span class="traffic-dot dot-yellow"></span>
+                <span class="traffic-dot dot-green"></span>
+              </div>
+              <div class="stage-title" id="stageTitle">Murmur — Universal ⌃⌥D HUD</div>
+              <div style="font-size: 0.75rem; color: var(--accent-blue); font-weight: 600;" id="stageBadge">Focused: Slack / VS Code</div>
+            </div>
+
+            <div class="stage-body">
+              <div class="hud-simulation">
+                <!-- Audio Waveform Animation -->
+                <div class="hud-wave-row">
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                  <div class="wave-bar"></div>
+                </div>
+
+                <!-- Cleaned Transcription Output Box -->
+                <div class="hud-transcription-box">
+                  <span class="hud-cleaned-tag" id="hudCleanedTag">System-Wide Injection Active</span>
+                  <div id="hudTranscription">
+                    “Let’s schedule our release sprint review for this Thursday at 10 AM and finalize the remaining App Store Connect assets.”
+                  </div>
+                </div>
+
+                <div class="hud-footer">
+                  <span id="hudFooterLeft">Cleaned text inserted directly at active text cursor</span>
+                  <span style="font-family: var(--font-mono); color: var(--accent-blue);" id="hudFooterRight">154 WPM · 0ms Cloud Latency</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visual Feature Highlights with High-Res Screenshots -->
+    <section class="section" id="features">
+      <div class="container">
+        <p class="section-label">Engineered for Focus</p>
+        <h2 class="section-title">Built for the way you already think.</h2>
+
+        <!-- Feature 1: Menu Bar Popover -->
+        <div class="feature-showcase-row">
+          <div class="feature-showcase-text">
+            <h3 style="font-size: 2rem; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 16px;">
+              Always one click away in your menu bar.
+            </h3>
+            <p style="font-size: 1.1rem; color: var(--ink-secondary); line-height: 1.6; margin-bottom: 20px;">
+              Murmur sits discreetly in your macOS menu bar. Inspect real-time audio waveforms, toggle Smart Clean modes, and jump into recent meeting recordings without leaving your workspace.
+            </p>
+            <ul class="feature-showcase-list">
+              <li>✓ <strong>Global Hotkey:</strong> Press <kbd class="kbd-badge">⌃⌥D</kbd> (<kbd class="kbd-badge">Ctrl+Opt+D</kbd>) to dictate without opening a new window.</li>
+              <li>✓ <strong>Live Self-Correction:</strong> Words update contextually as sentences finish.</li>
+              <li>✓ <strong>Instant Notes Vault:</strong> Access recent voice memos and meeting summaries.</li>
+            </ul>
+          </div>
+          <div class="feature-showcase-img-wrap">
+            <img src="assets/screens/popover.jpg?v=2c5714b5" alt="Murmur menu bar popover showing live dictation" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Feature 2: Settings & Model Choice -->
+        <div class="feature-showcase-row reverse">
+          <div class="feature-showcase-text">
+            <h3 style="font-size: 2rem; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 16px;">
+              Tune the AI Engine to your voice and cadence.
+            </h3>
+            <p style="font-size: 1.1rem; color: var(--ink-secondary); line-height: 1.6; margin-bottom: 20px;">
+              Choose between OpenAI's Whisper model (via WhisperKit) on the Apple Neural Engine or Apple's built-in Speech framework. Customize punctuation, capitalization, and filter sensitivity:
+            </p>
+            <ul class="feature-showcase-list">
+              <li>✓ <strong>Filter Sensitivity:</strong> Off, Light, Standard, or Aggressive filler removal.</li>
+              <li>✓ <strong>Model Selection:</strong> WhisperKit for high accuracy or Apple Speech for light battery draw.</li>
+              <li>✓ <strong>Automatic Punctuation:</strong> Intelligently handles commas, periods, question marks, and paragraphs.</li>
+            </ul>
+          </div>
+          <div class="feature-showcase-img-wrap">
+            <img src="assets/screens/settings.jpg?v=b1630d9d" alt="Murmur AI Engine and Whisper settings panel" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tactile Keycap Reference Playground -->
+    <section class="section section-mist" id="shortcuts">
+      <div class="container">
+        <p class="section-label">Keyboard Reference</p>
+        <h2 class="section-title">Speed at your fingertips.</h2>
+        <p class="section-subtitle">
+          Press any key combination on your keyboard, or click the tactile buttons below:
+        </p>
+
+        <div class="key-tester-wrapper">
+          <div class="keycaps-row">
+            <button type="button" class="keycap-btn active" data-key="Ctrl+Opt+D">⌃⌥D (Ctrl+Opt+D)</button>
+            <button type="button" class="keycap-btn" data-key="Cmd+M">⌘M (Cmd+M)</button>
+            <button type="button" class="keycap-btn" data-key="Space">Space ␣</button>
+            <button type="button" class="keycap-btn" data-key="Enter">Enter ↵</button>
+            <button type="button" class="keycap-btn" data-key="Escape">Esc ⎋</button>
+          </div>
+
+          <div class="keycap-feedback" id="keyFeedback">
+            ⌃⌥D (Ctrl+Opt+D) — Toggles the liquid-glass dictation HUD anywhere on your Mac. Starts listening instantly.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Three Clean Promises -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Yours, and only yours.</h2>
+
+        <div class="promises-grid">
+          <div class="promise-card">
+            <h3>100% On-Device Whisper.</h3>
+            <p>
+              Speech recognition runs entirely on Apple Silicon Neural Engine via WhisperKit. Zero audio, transcripts, or personal data ever touch an external cloud server.
+            </p>
+          </div>
+
+          <div class="promise-card">
+            <h3>Offline-first by design.</h3>
+            <p>
+              The base Whisper model (~147MB) ships bundled inside the application package. Murmur operates with full transcription power on flights, subways, or offline retreats.
+            </p>
+          </div>
+
+          <div class="promise-card">
+            <h3>Zero subscriptions or ads.</h3>
+            <p>
+              100% free and open source under the MIT license. No API token fees, no usage subscriptions, and zero telemetry analytics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clean Setup Section (Pathway Terminal style) -->
+    <section class="section setup-section" id="setup">
+      <div class="container">
+        <p class="section-label">Setup</p>
+        <h2 class="section-title">One drag. Then start talking.</h2>
+        <p class="section-subtitle">
+          Available as an Apple-notarized DMG installer or terminal command.
+        </p>
+
+        <div class="setup-stack">
+          <!-- Terminal Card 1: Install -->
+          <div class="terminal-card">
+            <div class="terminal-topbar">
+              <div class="terminal-step">
+                <span class="step-num">1</span>
+                <span>Install</span>
+              </div>
+              <div class="terminal-controls">
+                <div class="os-pill-group">
+                  <button type="button" class="os-tab active" data-mode="dmg">Direct DMG</button>
+                  <button type="button" class="os-tab" data-mode="git">Git Repo</button>
+                  <button type="button" class="os-tab" data-mode="curl">One-Line Curl</button>
+                </div>
+                <button type="button" class="copy-btn" data-copy="install">Copy</button>
+              </div>
+            </div>
+            <div class="terminal-content">
+              <p class="terminal-comment" id="installComment"># Double-click mounted DMG, drag Murmur into Applications</p>
+              <div class="terminal-cmd-row">
+                <div style="max-width: 80%;">
+                  <span class="t-prompt">$</span>
+                  <span class="t-cmd" id="installCmd">open Murmur-1.0.1.dmg</span>
+                </div>
+                <span class="t-desc" id="installDesc">mounts the notarized disk image</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terminal Card 2: Run -->
+          <div class="terminal-card">
+            <div class="terminal-topbar">
+              <div class="terminal-step">
+                <span class="step-num">2</span>
+                <span>Launch</span>
+              </div>
+              <button type="button" class="copy-btn" data-copy="run">Copy</button>
+            </div>
+            <div class="terminal-content">
+              <p class="terminal-comment"># Launch Murmur directly from Spotlight or Applications</p>
+              <div class="terminal-cmd-row">
+                <div>
+                  <span class="t-prompt">$</span>
+                  <span class="t-cmd">open -a Murmur</span>
+                </div>
+                <span class="t-desc">launches liquid-glass voice agent</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRAND FINAL DOWNLOAD SECTION -->
+    <section class="close-section" id="download">
+      <div class="container">
+        <h2 class="close-title">
+          Stop typing. Start talking.
+        </h2>
+        <p class="close-desc">
+          Dictate at the speed of thought. Automatically removes filler words and stutters in real time. 100% on-device Whisper on Apple Silicon. Free and open source.
+        </p>
+
+        <div class="bottom-actions-group">
+          <!-- BOTTOM DOWNLOAD BUTTON -->
+          <a href="https://github.com/GopiKrishnaRakesh/Murmur/releases/download/v1.0.1/Murmur.dmg" class="btn-pill btn-pill-primary" style="height: 56px; padding: 0 32px; font-size: 1.15rem;" id="bottomDownloadBtn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Murmur for Mac (v1.0.1 DMG)</span>
+          </a>
+          <button type="button" class="btn-pill btn-pill-secondary copy-download-link-btn" style="height: 56px; padding: 0 24px; font-size: 1rem;" title="Copy direct download link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+              <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+            </svg>
+            <span>Copy Link</span>
+          </button>
+        </div>
+
+        <p class="close-specs">
+          Runs on macOS 14.0+ Sonoma & macOS 15.0+ Sequoia · Apple Silicon (M1–M4) · 100% Free &amp; Open Source
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Minimal Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <img src="assets/app-icon.png?v=91cbb121" alt="Murmur" style="width: 24px; height: 24px; border-radius: 5px;">
+        <span style="font-weight: 600; color: var(--ink-primary);">Murmur</span>
+        <span>— Part of the native software suite by <a href="../index.html" style="font-weight: 650; color: var(--ink-primary);">Mac Upgraded</a></span>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="../index.html" class="footer-link" style="font-weight: 650; color: var(--ink-primary);">← All Apps</a>
+        <a href="privacy.html" class="footer-link">Privacy Policy</a>
+        <a href="terms.html" class="footer-link">Terms</a>
+        <a href="mailto:contact@rakeshkode.co.uk" class="footer-link" style="color: var(--accent-blue); font-weight: 600;">contact@rakeshkode.co.uk</a>
+        <a href="https://github.com/GopiKrishnaRakesh/Murmur/releases/download/v1.0.1/Murmur.dmg" class="footer-link" style="color: var(--accent-blue); font-weight: 600;">Download DMG</a>
+        <a href="https://github.com/GopiKrishnaRakesh/Murmur" class="footer-link" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="app.js?v=384336a9" defer></script>
+
+<div class="rk-studio" style="border-top:1px solid rgba(127,127,127,.25);padding:18px 16px;text-align:center;font:14px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:inherit;opacity:.85">
+  Part of <a href="../index.html" style="color:inherit;font-weight:600">Mac Upgraded</a> by Rakesh Kode —
+  <a href="../paperleaf/index.html" style="color:inherit">Paperleaf</a> · <a href="../pathway/index.html" style="color:inherit">Pathway</a> · <a href="../paperbeam/index.html" style="color:inherit">Paperbeam</a> · <a href="../nfcpocket/index.html" style="color:inherit">NFC Pocket</a> · <a href="../brickr/index.html" style="color:inherit">Brickr</a> · <a href="../murmur/index.html" style="color:inherit">Murmur</a>
+</div>
+</body>
+</html>

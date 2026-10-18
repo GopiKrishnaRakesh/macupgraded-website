@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="site-version" content="20261018-080004-b6ee6dc">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paperbeam — Private PDF Scanner &amp; OCR for iPhone</title>
+  <meta name="description" content="Scan anything into a crisp, searchable PDF in seconds. On-device text recognition, Face ID protection, and password-protected exports. Nothing is uploaded.">
+
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0a0b0d" media="(prefers-color-scheme: dark)">
+
+  <!-- Set theme before paint to avoid flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('mu-theme');
+        if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Paperbeam">
+  <meta property="og:title" content="Paperbeam — Private PDF Scanner &amp; OCR for iPhone">
+  <meta property="og:description" content="Point, capture, and get a clean, perfectly cropped PDF in seconds. On-device Vision OCR, Face ID protection, and zero cloud uploads.">
+  <meta property="og:image" content="assets/screen-document.png?v=14257525">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Paperbeam — Private PDF Scanner &amp; OCR for iPhone">
+  <meta name="twitter:description" content="Point, capture, and get a clean, perfectly cropped PDF in seconds. On-device Vision OCR, Face ID protection, and zero cloud uploads.">
+  <meta name="twitter:image" content="assets/screen-document.png?v=14257525">
+
+  <link rel="icon" type="image/png" href="assets/app-icon.png?v=0af5ed4e">
+  <link rel="apple-touch-icon" href="assets/app-icon.png?v=0af5ed4e">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=be2baf69">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Paperbeam",
+    "operatingSystem": "iOS 16.0+",
+    "applicationCategory": "ProductivityApplication",
+    "description": "Private PDF scanner with on-device text recognition.",
+    "offers": { "@type": "Offer", "price": "0.00", "priceCurrency": "USD" }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Studio status strip -->
+  <div class="topstrip">
+    <div class="topstrip-inner">
+      <span><span class="dotok">●</span>&nbsp; PAPERBEAM — PRIVATE PDF SCANNER</span>
+      <span class="topstrip-right">NEURAL OCR · VISION<span class="sep">/</span>iOS<span class="sep">/</span>ON-DEVICE</span>
+    </div>
+  </div>
+
+  <!-- Flat Toolbar -->
+  <div class="navbar-wrapper">
+    <header class="navbar">
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <a href="../index.html" class="nav-back-pill" title="Return to Mac Upgraded Portfolio">← Mac Upgraded</a>
+        <a href="#top" class="nav-brand">
+          <img src="assets/app-icon.png?v=0af5ed4e" alt="Paperbeam" class="brand-icon">
+          <span class="brand-title">Paperbeam</span>
+        </a>
+      </div>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#showcase" class="nav-link">Showcase</a></li>
+          <li><a href="#ocr" class="nav-link">Vision OCR</a></li>
+          <li><a href="#security" class="nav-link">Privacy</a></li>
+          <li><a href="support.html" class="nav-link">Support</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-right">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="Switch between light and dark theme" title="Toggle theme">
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+        </button>
+        <a href="https://apps.apple.com/app/paperbeam/id6816061057" target="_blank" rel="noopener" class="nav-cta">Download</a>
+      </div>
+    </header>
+  </div>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow-pill">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>iPhone · Private PDF Scanner &amp; OCR</span>
+          </div>
+
+          <h1 class="hero-title">
+            Crisp document scans.<br>
+            <em class="title-highlight">100% on your device.</em>
+          </h1>
+
+          <p class="hero-desc">
+            Turn receipts, whiteboards, contracts, and notes into crystal-clear, searchable PDFs. Built on Apple's Neural Engine Vision framework—your private documents are never uploaded to any cloud server.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://apps.apple.com/app/paperbeam/id6816061057" target="_blank" rel="noopener" class="launching-soon-pill">
+              <span class="live-dot" aria-hidden="true"></span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.8-.8 2-1.4 2.8-1.4zM19 17.3c-.5 1.1-.7 1.6-1.3 2.6-.9 1.4-2.1 3.1-3.6 3.1-1.3 0-1.7-.9-3.5-.9s-2.2.8-3.5.9c-1.5.1-2.6-1.5-3.5-2.9C1 19 .3 15.4 1.8 13c.8-1.3 2.1-2.1 3.6-2.1 1.4 0 2.3.9 3.5.9 1.1 0 1.8-.9 3.5-.9 1.3 0 2.6.7 3.6 1.9-3.1 1.7-2.6 6.1.4 7.5z"/></svg>
+              <span>Available on the App Store</span>
+            </a>
+            <a href="#features" class="btn btn-ghost">Explore Features ↓</a>
+          </div>
+
+          <p class="hero-subline">iOS 16+ · Neural Engine Vision · Face ID Protected</p>
+        </div>
+
+        <div class="hero-visual">
+          <div class="render-duo">
+            <div class="render-card render-back">
+              <img src="assets/renders/render-02.png?v=7106582a" alt="Paperbeam crisp scanned document render" width="552" height="1200" loading="eager">
+            </div>
+            <div class="render-card render-front">
+              <img src="assets/renders/render-01.png?v=8e5840f0" alt="Paperbeam beautifully sorted paperwork render" width="552" height="1200" loading="eager">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust Strip -->
+    <div class="container">
+      <ul class="trust-strip">
+        <li>
+          <div class="trust-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div>
+            <strong>100% On-Device</strong>
+            <span>Zero cloud uploads</span>
+          </div>
+        </li>
+        <li>
+          <div class="trust-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </div>
+          <div>
+            <strong>Searchable PDFs</strong>
+            <span>Full-text embedded search</span>
+          </div>
+        </li>
+        <li>
+          <div class="trust-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          </div>
+          <div>
+            <strong>Face ID Protection</strong>
+            <span>Biometric vault lock</span>
+          </div>
+        </li>
+        <li>
+          <div class="trust-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          </div>
+          <div>
+            <strong>Password Encryption</strong>
+            <span>AES-256 secure export</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="section-eyebrow">Scanning Made Effortless</span>
+          <h2 class="section-title">Point, shoot, and preserve</h2>
+          <p class="section-lead">
+            Paperbeam automatically locates paper edges, straightens skewed perspectives, and balances lighting.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-box">
+            <div class="feat-icon">📐</div>
+            <h3>Automatic Edge Detection</h3>
+            <p>Real-time machine learning detects document borders instantly. Holds still and captures automatically without hand blur.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feat-icon">🔍</div>
+            <h3>On-Device Vision OCR</h3>
+            <p>Recognizes every word on the page using Apple's Neural Engine. Search your documents by text content or copy paragraphs directly.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feat-icon">🔐</div>
+            <h3>Face ID Document Vault</h3>
+            <p>Lock confidential contracts, tax returns, and medical records behind biometric Face ID or your device passcode.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feat-icon">🎨</div>
+            <h3>Clean Document Filters</h3>
+            <p>High-contrast B&amp;W document filter, smooth grayscale, and color photo modes make faded ink look brand new.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feat-icon">📑</div>
+            <h3>Multi-Page Searchable PDF</h3>
+            <p>Scan 20-page packets easily. Reorder, rotate, or append new sheets anytime with embedded searchable text layers.</p>
+          </div>
+
+          <div class="feature-box">
+            <div class="feat-icon">🖋️</div>
+            <h3>Watermarks &amp; Stamps</h3>
+            <p>Add confidential stamps, approval marks, or custom dates prior to exporting and sharing via AirDrop or Mail.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- App Store Showcase Gallery -->
+    <section id="showcase" class="section section-showcase">
+      <div class="container">
+        <div class="section-head text-center">
+          <span class="section-eyebrow">Designed for iPhone</span>
+          <h2 class="section-title">Built with Apple-grade precision</h2>
+          <p class="section-lead">
+            A fast, distraction-free document workflow designed to live naturally on your Home Screen.
+          </p>
+        </div>
+
+        <div class="renders-gallery">
+          <div class="gallery-card">
+            <img src="assets/renders/render-01.png?v=8e5840f0" alt="Paperbeam library and Face ID biometric vault render" width="552" height="1200" loading="lazy">
+            <div class="gallery-info">
+              <h3>Your paperwork, beautifully sorted</h3>
+              <p>Smart folders for Work, Receipts, and Personal with biometric Face ID vault lock.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <img src="assets/renders/render-02.png?v=7106582a" alt="Paperbeam crisp PDF scanner render" width="552" height="1200" loading="lazy">
+            <div class="gallery-info">
+              <h3>Crisp PDFs in one tap</h3>
+              <p>Automatic edge detection, perspective flattening, and document enhance filters.</p>
+            </div>
+          </div>
+
+          <div class="gallery-card">
+            <img src="assets/renders/render-04.png?v=a37b13a8" alt="Paperbeam on-device Neural OCR render" width="552" height="1200" loading="lazy">
+            <div class="gallery-info">
+              <h3>Turn paper into real text</h3>
+              <p>Apple Neural Engine Vision extracts every word with one-tap clipboard copy.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OCR Spotlight -->
+    <section id="ocr" class="section section-alt">
+      <div class="container insight-showcase">
+        <div class="insight-copy">
+          <span class="section-eyebrow">Intelligence</span>
+          <h2 class="section-title">Search inside every scanned page</h2>
+          <p class="section-lead">
+            Ever spent twenty minutes looking for a paper receipt? Paperbeam indexes every scanned word on your iPhone so you can find anything in seconds.
+          </p>
+          <ul class="insight-list">
+            <li><strong>Instant Full-Text Search:</strong> Search by vendor name, invoice number, or part description.</li>
+            <li><strong>Select &amp; Copy Text:</strong> Copy tabular data or long paragraphs straight to your clipboard.</li>
+            <li><strong>Universal Searchable PDF:</strong> Files you export can be searched in Apple Books, Adobe Acrobat, or Preview.</li>
+          </ul>
+        </div>
+        <div class="insight-visual">
+          <div class="single-render">
+            <img src="assets/renders/render-04.png?v=a37b13a8" alt="Paperbeam on-device Vision OCR extracted text render" width="552" height="1200" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Security & Privacy -->
+    <section id="security" class="section">
+      <div class="container">
+        <div class="privacy-card">
+          <div class="privacy-badge">100% Offline</div>
+          <h2>Your documents belong to you</h2>
+          <p>
+            Many scanner apps upload your tax forms and passports to remote cloud servers to perform OCR. Paperbeam executes all OCR and image processing on your iPhone processor.
+          </p>
+          <div class="privacy-checks">
+            <span>✓ Zero cloud server uploads</span>
+            <span>✓ No accounts or registration</span>
+            <span>✓ Sandboxed local storage</span>
+            <span>✓ No analytics or telemetry</span>
+          </div>
+          <div class="privacy-links">
+            <a href="privacy-policy.html" class="link-btn">Read Privacy Policy →</a>
+            <a href="support.html" class="link-btn">Support &amp; FAQ →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="get" class="section cta-section">
+      <div class="container text-center">
+        <img src="assets/app-icon.png?v=0af5ed4e" alt="" width="80" height="80" class="cta-icon">
+        <h2 class="cta-title">Turn your paper into a clean, searchable archive.</h2>
+        <p class="cta-desc">Available for iPhone running iOS 16.0 or later.</p>
+        <div class="cta-buttons">
+          <a href="https://apps.apple.com/app/paperbeam/id6816061057" target="_blank" rel="noopener" class="launching-soon-badge-large">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.8-.8 2-1.4 2.8-1.4zM19 17.3c-.5 1.1-.7 1.6-1.3 2.6-.9 1.4-2.1 3.1-3.6 3.1-1.3 0-1.7-.9-3.5-.9s-2.2.8-3.5.9c-1.5.1-2.6-1.5-3.5-2.9C1 19 .3 15.4 1.8 13c.8-1.3 2.1-2.1 3.6-2.1 1.4 0 2.3.9 3.5.9 1.1 0 1.8-.9 3.5-.9 1.3 0 2.6.7 3.6 1.9-3.1 1.7-2.6 6.1.4 7.5z"/></svg>
+            <span>Download on the App Store</span>
+          </a>
+        </div>
+        <p class="cta-note">Available now on the App Store for iOS 16+. Part of the independent suite by <a href="../index.html">Rakesh Kode</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <span class="footer-brand">Paperbeam</span>
+        <span>© 2026 Paperbeam · Part of <a href="../index.html" style="font-weight: 650; color: var(--ink-primary);">Mac Upgraded</a></span>
+      </div>
+      <div class="footer-links">
+        <a href="../index.html" style="font-weight: 650; color: var(--ink-primary);">← All Apps</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
+        <a href="support.html">Support</a>
+        <a href="mailto:contact@rakeshkode.co.uk" style="color: var(--accent-brick); font-weight: 600;">contact@rakeshkode.co.uk</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Light / Dark theme toggle (shared Mac Upgraded behaviour, key: mu-theme) -->
+  <script>
+    (function () {
+      var toggle = document.getElementById('themeToggle');
+      if (!toggle) return;
+      var root = document.documentElement;
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
+      function current() {
+        var forced = root.getAttribute('data-theme');
+        if (forced === 'light' || forced === 'dark') return forced;
+        return prefersDark && prefersDark.matches ? 'dark' : 'light';
+      }
+      toggle.addEventListener('click', function () {
+        var next = current() === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('mu-theme', next); } catch (e) {}
+      });
+    })();
+  </script>
+
+<div class="rk-studio" style="border-top:1px solid rgba(127,127,127,.25);padding:18px 16px;text-align:center;font:14px/1.5 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:inherit;opacity:.85">
+  Part of <a href="../index.html" style="color:inherit;font-weight:600">Mac Upgraded</a> by Rakesh Kode —
+  <a href="../paperleaf/index.html" style="color:inherit">Paperleaf</a> · <a href="../pathway/index.html" style="color:inherit">Pathway</a> · <a href="../paperbeam/index.html" style="color:inherit">Paperbeam</a> · <a href="../nfcpocket/index.html" style="color:inherit">NFC Pocket</a> · <a href="../brickr/index.html" style="color:inherit">Brickr</a> · <a href="../murmur/index.html" style="color:inherit">Murmur</a>
+</div>
+</body>
+</html>

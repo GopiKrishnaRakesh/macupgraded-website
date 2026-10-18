@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+deploy/releases/
+deploy/zips/
+deploy/brickr/
+deploy/murmur/
+deploy/nfcpocket/
+deploy/paperbeam/
+deploy/paperleaf/
+deploy/pathway/

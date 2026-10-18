@@ -1,0 +1,17 @@
+{
+  "name": "Pathway — Mac File Manager",
+  "short_name": "Pathway",
+  "description": "Explorer's muscle memory meets macOS elegance. Native Swift file manager with live folder sizes, Enter opens, F2 renames, and true Cut & Paste.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#121316",
+  "icons": [
+    {
+      "src": "assets/app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
