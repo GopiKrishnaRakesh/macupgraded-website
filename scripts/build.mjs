@@ -42,7 +42,7 @@ const SECURE_EXCLUDES = [
   '.git', '.DS_Store', '*.md', '*.sh', '*.swift', '*.ts', '*.tsx', '*.map',
   '*.xcodeproj', '*.xcworkspace', 'node_modules', '*.yml', '*.yaml',
   '*.env', '*.log', '*.lock', 'Package.resolved', 'Package.swift', 'LICENSE',
-  '.gitignore', '.oxlintrc.json', 'tsconfig.json'
+  '.gitignore', '.oxlintrc.json', 'tsconfig.json', 'stripe-config.php'
 ]
 
 function copyTree(src, dest, patterns = []) {
@@ -109,7 +109,7 @@ ErrorDocument 404 /404.html
 </FilesMatch>
 
 # 3b. Block Access to Server Contact Submissions Log
-<FilesMatch "^(contact_submissions\\.php)$">
+<FilesMatch "^(contact_submissions\\.php|stripe-config\\.php|stripe-config\\.example\\.php)$">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>
@@ -198,6 +198,8 @@ const main = join(out, 'main')
 copyTree(join(root, 'master'), main)
 textReplace(main, common)
 writeFileSync(join(main, '.htaccess'), htaccess())
+writeFileSync(join(main, 'CNAME'), `${domain}\n`)
+writeFileSync(join(main, '.nojekyll'), '')
 
 // 2. Build each app and place it directly inside main/<app>/ (No subdomains!)
 for (const a of cfg.apps) {

@@ -8,3 +8,9 @@ deploy/nfcpocket/
 deploy/paperbeam/
 deploy/paperleaf/
 deploy/pathway/
+
+# Secrets and local logs
+stripe-config.php
+contact_submissions.php
+*.env
+*.env.*

@@ -27,7 +27,7 @@ ErrorDocument 404 /404.html
 </FilesMatch>
 
 # 3b. Block Access to Server Contact Submissions Log
-<FilesMatch "^(contact_submissions\.php)$">
+<FilesMatch "^(contact_submissions\.php|stripe-config\.php|stripe-config\.example\.php)$">
   <IfModule mod_authz_core.c>
     Require all denied
   </IfModule>
