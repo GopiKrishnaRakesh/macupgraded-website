@@ -252,6 +252,9 @@ for (const site of sites) {
 }
 writeFileSync(join(out, 'releases', 'LATEST'), version + '\n')
 
+// Sync built main site directly to repo root (for Hostinger Git deployment)
+copyTree(main, root, ['deploy', 'releases', 'zips', 'scripts', 'master', 'marketing', 'site.config.json', 'README.md', 'DEPLOY.md', '.git', '.github', 'node_modules'])
+
 // Report
 const size = (p) => execSync(`du -sh "${p}"`).toString().split('\t')[0]
 console.log(`Built for ${domain} (Single Domain, No Subdomains):`)
